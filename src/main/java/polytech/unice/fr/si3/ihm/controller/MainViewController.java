@@ -34,6 +34,12 @@ public class MainViewController{
     }
 
 
+    public void initContent(){
+        searchButton.getStyleClass().add("button-raised");
+        addIncidentButton.getStyleClass().add("button-raised");
+    }
+
+
 
 
 }

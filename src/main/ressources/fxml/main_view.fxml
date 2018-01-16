@@ -24,10 +24,13 @@
                               <HBox alignment="CENTER" prefHeight="39.0" prefWidth="196.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <JFXTextField alignment="CENTER" prefHeight="25.0" prefWidth="205.0" />
-                                    <JFXButton fx:id="searchButton" buttonType="RAISED" onMouseReleased="#searchIncident" text="Rechercher" HBox.hgrow="ALWAYS">
+                                    <JFXButton fx:id="searchButton" buttonType="RAISED" onMouseReleased="#searchIncident" style="-fx-border-style: solid; -fx-border-color: grey;" text="Rechercher" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
                                     </JFXButton>
                                  </children>
                               </HBox>
@@ -53,7 +56,11 @@
                      <children>
                         <AnchorPane prefHeight="35.0" prefWidth="600.0">
                            <children>
-                              <JFXButton fx:id="addIncidentButton" alignment="CENTER" buttonType="RAISED" onMouseReleased="#addIncident" text="Ajouter un incident" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <JFXButton fx:id="addIncidentButton" alignment="CENTER" buttonType="RAISED" onMouseReleased="#addIncident" style="-fx-border-style: solid; -fx-border-color: grey;" text="Ajouter un incident" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </JFXButton>
                            </children></AnchorPane>
                         <AnchorPane prefHeight="260.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
                            <children>
