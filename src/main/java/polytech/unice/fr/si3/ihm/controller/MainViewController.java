@@ -1,8 +1,8 @@
 package polytech.unice.fr.si3.ihm.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -18,13 +18,19 @@ public class MainViewController{
     }
 
     @FXML
-    private Button addIncident;
+    private JFXButton searchButton;
+
+    @FXML
+    private JFXButton addIncidentButton;
 
     @FXML
     void addIncident(MouseEvent event) {
-        if (event.equals(MouseEvent.MOUSE_RELEASED)){
 
-        }
+    }
+
+    @FXML
+    void searchIncident(MouseEvent event) {
+
     }
 
 

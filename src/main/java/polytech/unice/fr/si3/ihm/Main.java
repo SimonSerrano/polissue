@@ -37,6 +37,7 @@ public class Main extends Application {
         scene.getStylesheets().add("/styles/main.css");
         primaryStage.setTitle("Polissue");
         primaryStage.setScene(scene);
+        setUserAgentStylesheet(STYLESHEET_MODENA);
 
         MainViewController controller = loader.getController();
         controller.setStage(primaryStage);
