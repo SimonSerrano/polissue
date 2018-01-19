@@ -25,7 +25,9 @@ public class MainViewController{
 
     @FXML
     void addIncident(MouseEvent event) {
-
+        if (event.equals(MouseEvent.MOUSE_RELEASED)){
+            Stage stage = new Stage();
+        }
     }
 
     @FXML
