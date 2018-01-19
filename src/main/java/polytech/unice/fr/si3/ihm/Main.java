@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import polytech.unice.fr.si3.ihm.controller.MainViewController;
+import polytech.unice.fr.si3.ihm.util.Constant;
 
 public class Main extends Application {
 
@@ -25,10 +26,10 @@ public class Main extends Application {
     //TODO
         logger.info("Started Polissue");
 
-        String fxmlFile = "/fxml/main_view.fxml";
-        logger.debug("Loading FXML for main view from: {}", fxmlFile);
+
+        logger.debug("Loading FXML for main view from: {}", Constant.MAIN_PAGE_FXML);
         FXMLLoader loader = new FXMLLoader();
-        Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
+        Parent rootNode = loader.load(getClass().getResourceAsStream(Constant.MAIN_PAGE_FXML));
         primaryStage.setMinHeight(400);
         primaryStage.setMinWidth(700);
 
