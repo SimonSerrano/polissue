@@ -2,21 +2,21 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Group?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.TilePane?>
 
 
 <BorderPane prefHeight="118.0" prefWidth="558.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <Group>
+      <TilePane alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="56.0" layoutY="49.0" prefHeight="21.0" prefWidth="69.0" text="Likes" />
-            <JFXButton buttonType="RAISED" layoutX="125.0" layoutY="44.0" prefHeight="31.0" prefWidth="69.0" text="Yep" />
-            <JFXButton buttonType="RAISED" layoutX="194.0" layoutY="44.0" prefHeight="31.0" prefWidth="69.0" text="Nope" />
+            <Label alignment="CENTER" prefWidth="33.0" text="Likes" />
+            <JFXButton buttonType="RAISED" prefHeight="31.0" prefWidth="69.0" text="Yep" />
+            <JFXButton buttonType="RAISED" prefHeight="31.0" prefWidth="69.0" text="Nope" />
          </children>
-      </Group>
+      </TilePane>
    </center>
    <left>
       <Label alignment="TOP_LEFT" prefHeight="21.0" text="Je suis un incident" BorderPane.alignment="CENTER">
