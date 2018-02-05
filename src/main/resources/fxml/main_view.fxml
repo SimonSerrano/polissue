@@ -64,7 +64,7 @@
                            </children></AnchorPane>
                         <AnchorPane prefHeight="260.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <JFXListView AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <JFXListView fx:id="incidentsView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children></AnchorPane>
                      </children>
                      <padding>
