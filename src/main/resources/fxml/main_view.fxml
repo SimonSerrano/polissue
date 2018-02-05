@@ -7,10 +7,10 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-
 
 <FlowPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="polytech.unice.fr.si3.ihm.controller.MainViewController">
    <children>
@@ -29,11 +29,6 @@
                               <DropShadow />
                            </effect>
                         </JFXButton>
-                        <JFXComboBox promptText="Catégories">
-                           <HBox.margin>
-                              <Insets left="50.0" />
-                           </HBox.margin>
-                        </JFXComboBox>
                      </children>
                   </HBox>
                   <HBox prefHeight="69.0" prefWidth="601.0">
@@ -87,11 +82,20 @@
       </VBox>
       <VBox prefHeight="318.0" prefWidth="600.0">
          <children>
-            <JFXButton fx:id="addIncidentButton" alignment="CENTER" buttonType="RAISED" onMouseReleased="#addIncident" style="-fx-border-style: solid; -fx-border-color: grey;" text="Ajouter un incident">
-               <effect>
-                  <DropShadow />
-               </effect>
-            </JFXButton>
+            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="590.0">
+               <children>
+                  <JFXButton fx:id="addIncidentButton" buttonType="RAISED" onMouseReleased="#addIncident" prefHeight="33.0" prefWidth="161.0" style="-fx-border-style: solid; -fx-border-color: grey;" text="Ajouter un incident">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </JFXButton>
+                  <AnchorPane prefHeight="33.0" prefWidth="321.0" />
+                  <JFXComboBox promptText="Catégories" />
+               </children>
+            </HBox>
             <JFXListView />
          </children>
          <padding>
