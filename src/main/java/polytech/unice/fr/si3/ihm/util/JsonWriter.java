@@ -2,7 +2,9 @@ package polytech.unice.fr.si3.ihm.util;
 
 import org.json.JSONObject;
 
-import java.io.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Logger;
 
 /**
  * Class that allows to write a json object in the file where all the data is stored
@@ -26,9 +28,8 @@ public class JsonWriter {
         try(FileWriter writer = new FileWriter(dataFilePath)){
             writer.append(jsonObject.toString());
             writer.flush();
-            writer.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            Logger.getLogger("Thrower").warning(e.toString());
         }
     }
 }
