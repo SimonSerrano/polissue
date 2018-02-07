@@ -12,14 +12,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="polytech.unice.fr.si3.ihm.controller.AddIncidentController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane prefHeight="245.0" prefWidth="91.0" HBox.hgrow="NEVER">
                <children>
-                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="13.0" layoutY="14.0" prefHeight="32.0" prefWidth="66.0" style="-fx-border-color: grey;" text="&lt; Retour" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
+                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="13.0" layoutY="14.0" onMouseReleased="#backToIncidentList" prefHeight="32.0" prefWidth="66.0" style="-fx-border-color: grey;" text="&lt; Retour" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
                </children>
                <HBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -31,7 +30,7 @@
                      <children>
                         <AnchorPane prefHeight="54.0" prefWidth="560.0">
                            <children>
-                              <JFXTextField alignment="CENTER" layoutX="14.0" layoutY="15.0" promptText="Titre de l'incident" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="15.0" />
+                              <JFXTextField fx:id="incidentTitle" alignment="CENTER" layoutX="14.0" layoutY="15.0" promptText="Titre de l'incident" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="15.0" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -39,7 +38,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="54.0" prefWidth="560.0">
                            <children>
-                              <JFXTextField alignment="CENTER" layoutX="14.0" layoutY="15.0" promptText="Personne déclarant l'incident" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="15.0" />
+                              <JFXTextField fx:id="incidentDeclarer" alignment="CENTER" layoutX="14.0" layoutY="15.0" promptText="Personne déclarant l'incident" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="15.0" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -56,7 +55,7 @@
                                     </AnchorPane>
                                     <AnchorPane prefHeight="114.0" prefWidth="560.0">
                                        <children>
-                                          <JFXTextArea AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="15.0" />
+                                          <JFXTextArea fx:id="incidentDescription" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="15.0" />
                                        </children>
                                     </AnchorPane>
                                  </children>
@@ -122,7 +121,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="554.0" prefWidth="86.0">
                <children>
-                  <JFXButton buttonType="RAISED" layoutX="17.0" layoutY="515.0" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Valider" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+                  <JFXButton buttonType="RAISED" layoutX="17.0" layoutY="515.0" onMouseReleased="#validateIncident" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Valider" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
                </children>
                <HBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

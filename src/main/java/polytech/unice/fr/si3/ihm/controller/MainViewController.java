@@ -5,24 +5,34 @@ import com.jfoenix.controls.JFXListView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import polytech.unice.fr.si3.ihm.model.Incident;
+import polytech.unice.fr.si3.ihm.util.Constant;
 import polytech.unice.fr.si3.ihm.view.IncidentCell;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static javafx.application.Application.STYLESHEET_MODENA;
+import static javafx.application.Application.setUserAgentStylesheet;
 
 public class MainViewController implements Initializable {
 
     private Stage stage;
     private Scene scene;
 
+    private Logger logger = LogManager.getLogger();
 
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -40,10 +50,28 @@ public class MainViewController implements Initializable {
 
     @FXML
     void addIncident(MouseEvent event) {
-        if (event.equals(MouseEvent.MOUSE_RELEASED)) {
-            //open the new incident stage
-            //Stage incidentStage = new Stage();
+
+        logger.debug("Loading FXML for main view from: {}", Constant.ADD_INCIDENT_FXML);
+        FXMLLoader loader = new FXMLLoader();
+        try {
+            Parent rootNode = loader.load(getClass().getResourceAsStream(Constant.ADD_INCIDENT_FXML));
+            stage.setMinHeight(400);
+            stage.setMinWidth(700);
+            logger.debug("Showing JFX scene");
+            scene = new Scene(rootNode, 1280, 720);
+            scene.getStylesheets().add("/styles/main.css");
+            stage.setTitle("Polissue - Ajouter un incident");
+            stage.setScene(scene);
+            setUserAgentStylesheet(STYLESHEET_MODENA);
+
+            AddIncidentController controller = loader.getController();
+            controller.setStage(stage);
+            controller.setScene(scene);
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
     }
 
     @FXML
@@ -74,5 +102,8 @@ public class MainViewController implements Initializable {
     }
 
 
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
 }
 

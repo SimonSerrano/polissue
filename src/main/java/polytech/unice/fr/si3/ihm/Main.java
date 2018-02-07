@@ -42,6 +42,7 @@ public class Main extends Application {
 
         MainViewController controller = loader.getController();
         controller.setStage(primaryStage);
+        controller.setScene(scene);
 
         primaryStage.show();
 
