@@ -43,12 +43,14 @@ public class AddIncidentController implements Initializable{
 
     @FXML
     void backToIncidentList(MouseEvent event) {
+        logger.debug("Back button clicked");
         goBackToIncidentList();
     }
 
     @FXML
     void validateIncident(MouseEvent event) {
         //TODO write the new incident in the data base
+        logger.debug("Validate incident button clicked");
         if (!incidentTitle.getText().isEmpty() && !incidentDeclarer.getText().isEmpty() && !incidentDescription.getText().isEmpty()) {
             goBackToIncidentList();
         }else {

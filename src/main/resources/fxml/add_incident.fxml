@@ -5,129 +5,84 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="polytech.unice.fr.si3.ihm.controller.AddIncidentController">
+
+<HBox alignment="CENTER" prefHeight="616.0" prefWidth="503.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="polytech.unice.fr.si3.ihm.controller.AddIncidentController">
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <FlowPane orientation="VERTICAL" rowValignment="TOP" HBox.hgrow="ALWAYS">
          <children>
-            <AnchorPane prefHeight="245.0" prefWidth="91.0" HBox.hgrow="NEVER">
-               <children>
-                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="13.0" layoutY="14.0" onMouseReleased="#backToIncidentList" prefHeight="32.0" prefWidth="66.0" style="-fx-border-color: grey;" text="&lt; Retour" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
-               </children>
-               <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </HBox.margin>
-            </AnchorPane>
-            <AnchorPane HBox.hgrow="ALWAYS">
-               <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <AnchorPane prefHeight="54.0" prefWidth="560.0">
-                           <children>
-                              <JFXTextField fx:id="incidentTitle" alignment="CENTER" layoutX="14.0" layoutY="15.0" promptText="Titre de l'incident" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="15.0" />
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                           </VBox.margin>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="54.0" prefWidth="560.0">
-                           <children>
-                              <JFXTextField fx:id="incidentDeclarer" alignment="CENTER" layoutX="14.0" layoutY="15.0" promptText="Personne déclarant l'incident" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="15.0" />
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                           </VBox.margin>
-                        </AnchorPane>
-                        <AnchorPane style="-fx-border-color: grey;">
-                           <children>
-                              <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <AnchorPane prefHeight="42.0" prefWidth="572.0">
-                                       <children>
-                                          <Label alignment="CENTER" layoutX="145.0" layoutY="15.0" prefHeight="17.0" prefWidth="8.0" text="Description de l'incident" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="15.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="114.0" prefWidth="560.0">
-                                       <children>
-                                          <JFXTextArea fx:id="incidentDescription" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="15.0" />
-                                       </children>
-                                    </AnchorPane>
-                                 </children>
-                              </VBox>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                           </VBox.margin>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <GridPane prefHeight="161.0" prefWidth="317.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                 <children>
-                                    <AnchorPane>
-                                       <children>
-                                          <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="15.0" layoutY="20.0" prefHeight="27.0" prefWidth="129.0" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 1" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane GridPane.columnIndex="1">
-                                       <children>
-                                          <JFXButton buttonType="RAISED" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 2" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane GridPane.rowIndex="1">
-                                       <children>
-                                          <JFXButton buttonType="RAISED" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 3" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                       <children>
-                                          <JFXButton buttonType="RAISED" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 4" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane GridPane.rowIndex="2">
-                                       <children>
-                                          <JFXButton buttonType="RAISED" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 5" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                       <children>
-                                          <JFXButton buttonType="RAISED" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 6" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
-                                       </children>
-                                    </AnchorPane>
-                                 </children>
-                              </GridPane>
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </VBox>
-               </children>
-               <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </HBox.margin>
-            </AnchorPane>
-            <AnchorPane prefHeight="554.0" prefWidth="86.0">
-               <children>
-                  <JFXButton buttonType="RAISED" layoutX="17.0" layoutY="515.0" onMouseReleased="#validateIncident" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Valider" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
-               </children>
-               <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </HBox.margin>
-            </AnchorPane>
+            <JFXButton alignment="CENTER" buttonType="RAISED" onMouseReleased="#backToIncidentList" prefHeight="32.0" prefWidth="66.0" style="-fx-border-color: grey;" text="&lt; Retour" />
          </children>
-      </HBox>
+         <HBox.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </HBox.margin>
+      </FlowPane>
+      <VBox alignment="CENTER" prefHeight="555.0" prefWidth="262.0" HBox.hgrow="ALWAYS">
+         <children>
+            <JFXTextField fx:id="incidentTitle" alignment="CENTER" promptText="Titre de l'incident" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="incidentDeclarer" alignment="CENTER" promptText="Personne déclarant l'incident">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Description de l'incident" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXTextArea fx:id="incidentDescription" prefHeight="131.0" prefWidth="316.0">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXTextArea>
+               </children>
+            </VBox>
+            <GridPane alignment="CENTER" prefHeight="140.0" prefWidth="289.0" VBox.vgrow="ALWAYS">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" prefHeight="27.0" prefWidth="83.0" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <JFXButton buttonType="RAISED" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <JFXButton buttonType="RAISED" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <JFXButton buttonType="RAISED" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 4" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <JFXButton buttonType="RAISED" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <JFXButton buttonType="RAISED" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 6" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </GridPane>
+         </children>
+         <HBox.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </HBox.margin>
+      </VBox>
+      <FlowPane alignment="BOTTOM_RIGHT" columnHalignment="RIGHT" orientation="VERTICAL" rowValignment="BOTTOM" HBox.hgrow="ALWAYS">
+         <HBox.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </HBox.margin>
+         <children>
+            <JFXButton alignment="CENTER" buttonType="RAISED" onMouseReleased="#validateIncident" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Valider" />
+         </children>
+      </FlowPane>
    </children>
-</AnchorPane>
+</HBox>
