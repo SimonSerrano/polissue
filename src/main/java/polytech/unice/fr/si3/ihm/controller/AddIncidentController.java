@@ -59,7 +59,7 @@ public class AddIncidentController implements Initializable{
             Incident incident=new Incident(incidentTitle.getText(),incidentDescription.getText(),incidentDeclarer.getText());
             JsonWriter jsonWriter=new JsonWriter();
             IncidentJSONFactory incidentJSONFactory=new IncidentJSONFactory();
-            jsonWriter.write(incidentJSONFactory.produce(incident),"src/test/resources/data/incidents.json");
+            jsonWriter.write(incidentJSONFactory.produce(incident),"src/main/resources/data/incidents.json");
 
             goBackToIncidentList();
         }else {
