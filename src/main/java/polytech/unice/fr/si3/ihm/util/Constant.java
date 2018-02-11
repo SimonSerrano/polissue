@@ -6,6 +6,9 @@ public class Constant {
     public static final String INCIDENT_CELL_FXML = "/fxml/incident_cell.fxml";
     public static final String INCIDENT_DETAILS_FXML = "/fxml/incident_details.fxml";
 
+
+    public static final String INCIDENT_DATA_JSON = "/data/incidents.json";
+
     private Constant() {
     }
 }
