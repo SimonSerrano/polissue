@@ -6,3 +6,11 @@
     -fx-pref-width: 200;
     -fx-text-fill: WHITE;
 }
+
+
+.category-selected{
+    -fx-border-color: grey;
+    -fx-border-radius: 50;
+    -fx-background-color: grey;
+}
+
