@@ -1,5 +1,7 @@
 package polytech.unice.fr.si3.ihm.model;
 
+
+
 /**
  * Class that model an incident
  */
@@ -44,4 +46,5 @@ public class Incident {
     public String getDeclarer() {
         return declarer;
     }
+
 }

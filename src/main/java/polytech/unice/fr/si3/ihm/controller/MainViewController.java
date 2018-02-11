@@ -81,6 +81,32 @@ public class MainViewController implements Initializable {
 
 
     @FXML
+    void toDetails(MouseEvent event){
+        logger.info("Clicked : " + incidentsView.getSelectionModel().getSelectedItem());
+        logger.debug("Loading FXML for main view from: {}", Constant.INCIDENT_DETAILS_FXML);
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            Stage stage = new Stage();
+            Parent rootNode = loader.load(getClass().getResourceAsStream(Constant.INCIDENT_DETAILS_FXML));
+            stage.setMinHeight(400);
+            stage.setMinWidth(700);
+
+            logger.debug("Showing JFX scene");
+            Scene scene = new Scene(rootNode, 1280, 720);
+            scene.getStylesheets().add("/styles/main.css");
+            stage.setTitle("Polissue");
+            stage.setScene(scene);
+            setUserAgentStylesheet(STYLESHEET_MODENA);
+            IncidentDetailsController controller = loader.getController();
+            controller.initContent(incidentsView.getSelectionModel().getSelectedItem());
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ObservableList<Incident> incidents = FXCollections.observableArrayList();
