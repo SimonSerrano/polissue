@@ -59,8 +59,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" prefHeight="33.0" prefWidth="146.0" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                  <JFXButton buttonType="RAISED" prefHeight="33.0" prefWidth="158.0" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <JFXButton buttonType="RAISED" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                   <JFXButton buttonType="RAISED" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                   <JFXButton buttonType="RAISED" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 4" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                   <JFXButton buttonType="RAISED" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
