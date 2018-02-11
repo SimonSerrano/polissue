@@ -16,12 +16,14 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import polytech.unice.fr.si3.ihm.factory.ModelBuilder;
 import polytech.unice.fr.si3.ihm.model.Incident;
 import polytech.unice.fr.si3.ihm.util.Constant;
 import polytech.unice.fr.si3.ihm.view.IncidentCell;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import static javafx.application.Application.STYLESHEET_MODENA;
@@ -83,11 +85,8 @@ public class MainViewController implements Initializable {
     @FXML
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ObservableList<Incident> incidents = FXCollections.observableArrayList();
-        incidents.add(new Incident("Lampe Cassé", "ampoule qui a claqué", "Mosser"));
-        incidents.add(new Incident("Wifi Lent", "je peux pas dl GOT", "Collet"));
-
-
+        ModelBuilder mb= new ModelBuilder();
+        ObservableList<Incident> incidents =FXCollections.observableArrayList(mb.readIncidents("src/main/resources/data/incidents.json"));
         incidentsView.setCellFactory(
                 new Callback<ListView<Incident>, ListCell<Incident>>() {
                     @Override

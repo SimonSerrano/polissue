@@ -12,18 +12,17 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
-<HBox alignment="CENTER" prefHeight="616.0" prefWidth="503.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="polytech.unice.fr.si3.ihm.controller.AddIncidentController">
+<HBox alignment="CENTER" prefHeight="616.0" prefWidth="514.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="polytech.unice.fr.si3.ihm.controller.AddIncidentController">
    <children>
-      <FlowPane orientation="VERTICAL" rowValignment="TOP" HBox.hgrow="ALWAYS">
+      <FlowPane orientation="VERTICAL" prefHeight="576.0" prefWidth="19.0" rowValignment="TOP" HBox.hgrow="ALWAYS">
          <children>
-            <JFXButton alignment="CENTER" buttonType="RAISED" onMouseReleased="#backToIncidentList" prefHeight="32.0" prefWidth="66.0" style="-fx-border-color: grey;" text="&lt; Retour" />
+            <JFXButton alignment="CENTER" buttonType="RAISED" onMouseReleased="#backToIncidentList" prefHeight="33.0" prefWidth="83.0" style="-fx-border-color: grey;" text="&lt; Retour" />
          </children>
          <HBox.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </HBox.margin>
       </FlowPane>
-      <VBox alignment="CENTER" prefHeight="555.0" prefWidth="262.0" HBox.hgrow="ALWAYS">
+      <VBox alignment="CENTER" prefHeight="576.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
          <children>
             <JFXTextField fx:id="incidentTitle" alignment="CENTER" promptText="Titre de l'incident" VBox.vgrow="ALWAYS">
                <VBox.margin>
@@ -60,8 +59,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" prefHeight="27.0" prefWidth="83.0" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                  <JFXButton buttonType="RAISED" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" prefHeight="33.0" prefWidth="146.0" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <JFXButton buttonType="RAISED" prefHeight="33.0" prefWidth="158.0" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                   <JFXButton buttonType="RAISED" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                   <JFXButton buttonType="RAISED" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 4" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                   <JFXButton buttonType="RAISED" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Catégorie 5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
@@ -76,12 +75,12 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </HBox.margin>
       </VBox>
-      <FlowPane alignment="BOTTOM_RIGHT" columnHalignment="RIGHT" orientation="VERTICAL" rowValignment="BOTTOM" HBox.hgrow="ALWAYS">
+      <FlowPane alignment="BOTTOM_RIGHT" columnHalignment="RIGHT" orientation="VERTICAL" prefHeight="576.0" prefWidth="47.0" rowValignment="BOTTOM" HBox.hgrow="ALWAYS">
          <HBox.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </HBox.margin>
          <children>
-            <JFXButton alignment="CENTER" buttonType="RAISED" onMouseReleased="#validateIncident" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Valider" />
+            <JFXButton alignment="CENTER" buttonType="RAISED" onMouseReleased="#validateIncident" prefHeight="55.0" prefWidth="71.0" style="-fx-border-color: grey; -fx-border-radius: 50;" text="Valider" />
          </children>
       </FlowPane>
    </children>
