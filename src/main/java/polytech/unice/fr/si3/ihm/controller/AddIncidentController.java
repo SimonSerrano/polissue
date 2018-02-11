@@ -167,6 +167,7 @@ public class AddIncidentController implements Initializable{
 
     @FXML
     void categoryOneClicked(MouseEvent event) {
+        logger.debug("category one clicked");
         incidentCategoryOne.getStyleClass().removeAll("category-selected");
         incidentCategoryOne.getStyleClass().add("category-selected");
         resetCategories(incidentCategoryOne);
@@ -175,6 +176,7 @@ public class AddIncidentController implements Initializable{
 
     @FXML
     void categoryTwoClicked(MouseEvent event) {
+        logger.debug("category two clicked");
         incidentCategoryTwo.getStyleClass().removeAll("category-selected");
         incidentCategoryTwo.getStyleClass().add("category-selected");
         resetCategories(incidentCategoryTwo);
@@ -182,6 +184,7 @@ public class AddIncidentController implements Initializable{
 
     @FXML
     void categoryThreeClicked(MouseEvent event) {
+        logger.debug("category three clicked");
         incidentCategoryThree.getStyleClass().removeAll("category-selected");
         incidentCategoryThree.getStyleClass().add("category-selected");
         resetCategories(incidentCategoryThree);
@@ -189,6 +192,7 @@ public class AddIncidentController implements Initializable{
 
     @FXML
     void categoryFourClicked(MouseEvent event) {
+        logger.debug("category four clicked");
         incidentCategoryFour.getStyleClass().removeAll("category-selected");
         incidentCategoryFour.getStyleClass().add("category-selected");
         resetCategories(incidentCategoryFour);
@@ -196,6 +200,7 @@ public class AddIncidentController implements Initializable{
 
     @FXML
     void categoryFiveClicked(MouseEvent event) {
+        logger.debug("category five clicked");
         incidentCategoryFive.getStyleClass().removeAll("category-selected");
         incidentCategoryFive.getStyleClass().add("category-selected");
         resetCategories(incidentCategoryFive);
@@ -203,12 +208,16 @@ public class AddIncidentController implements Initializable{
 
     @FXML
     void categorySixClicked(MouseEvent event) {
+        logger.debug("category six clicked");
         incidentCategorySix.getStyleClass().removeAll("category-selected");
         incidentCategorySix.getStyleClass().add("category-selected");
         resetCategories(incidentCategorySix);
     }
 
-
+    /**
+     * Resets the selection of the categories
+     * @param button the button that has been selected by the user
+     */
     private void resetCategories(JFXButton button){
         if (!incidentCategoryOne.equals(button)){
             incidentCategoryOne.getStyleClass().removeAll("category-selected");
