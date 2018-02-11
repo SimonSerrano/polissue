@@ -12,7 +12,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import polytech.unice.fr.si3.ihm.factory.IncidentJSONFactory;
+import polytech.unice.fr.si3.ihm.model.Incident;
 import polytech.unice.fr.si3.ihm.util.Constant;
+import polytech.unice.fr.si3.ihm.util.JsonWriter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -52,6 +55,12 @@ public class AddIncidentController implements Initializable{
         //TODO write the new incident in the data base
         logger.debug("Validate incident button clicked");
         if (!incidentTitle.getText().isEmpty() && !incidentDeclarer.getText().isEmpty() && !incidentDescription.getText().isEmpty()) {
+
+            Incident incident=new Incident(incidentTitle.getText(),incidentDescription.getText(),incidentDeclarer.getText());
+            JsonWriter jsonWriter=new JsonWriter();
+            IncidentJSONFactory incidentJSONFactory=new IncidentJSONFactory();
+            jsonWriter.write(incidentJSONFactory.produce(incident),"src/test/resources/data/incidents.json");
+
             goBackToIncidentList();
         }else {
             //TODO show errors

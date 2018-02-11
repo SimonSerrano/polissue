@@ -37,6 +37,13 @@
             <version>LATEST</version>
         </dependency>
 
+        <!-- Simple Json For reading File -->
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
         <!-- Junit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
