@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 import static javafx.application.Application.STYLESHEET_MODENA;
 import static javafx.application.Application.setUserAgentStylesheet;
 
-public class IncidentCellController implements Initializable {
+public class IncidentCellController {
     private Incident incident;
 
     private Logger logger = LogManager.getLogger();
@@ -70,10 +70,6 @@ public class IncidentCellController implements Initializable {
     }
 
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        setItem(incident);
-    }
 
     public void setItem(Incident item) {
         this.incident = item;
