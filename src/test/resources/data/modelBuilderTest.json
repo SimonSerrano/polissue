@@ -2,6 +2,7 @@
   {
     "title": "test",
     "description": "encoreTest",
-    "declarer": "toujoursTest"
+    "declarer": "toujoursTest",
+    "category": "OTHER"
   }
 ]
