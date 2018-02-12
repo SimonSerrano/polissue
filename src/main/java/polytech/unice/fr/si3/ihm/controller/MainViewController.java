@@ -23,7 +23,6 @@ import polytech.unice.fr.si3.ihm.view.IncidentCell;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import static javafx.application.Application.STYLESHEET_MODENA;
@@ -71,7 +70,7 @@ public class MainViewController implements Initializable {
             controller.setScene(scene);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e);
         }
 
     }
@@ -89,24 +88,24 @@ public class MainViewController implements Initializable {
         if (incidentsView.getSelectionModel().getSelectedItem() != null) {
             try {
                 FXMLLoader loader = new FXMLLoader();
-                Stage stage = new Stage();
+                Stage detailsStage = new Stage();
                 Parent rootNode = loader.load(getClass().getResourceAsStream(Constant.INCIDENT_DETAILS_FXML));
-                stage.setMinHeight(400);
-                stage.setMinWidth(700);
+                detailsStage.setMinHeight(400);
+                detailsStage.setMinWidth(700);
 
                 logger.debug("Showing JFX scene");
-                Scene scene = new Scene(rootNode, 1280, 720);
-                scene.getStylesheets().add("/styles/main.css");
-                stage.setTitle("Polissue");
-                stage.setScene(scene);
+                Scene detailsScene = new Scene(rootNode, 1280, 720);
+                detailsScene.getStylesheets().add("/styles/main.css");
+                detailsStage.setTitle("Polissue");
+                detailsStage.setScene(detailsScene);
                 setUserAgentStylesheet(STYLESHEET_MODENA);
                 IncidentDetailsController controller = loader.getController();
 
                 controller.initContent(incidentsView.getSelectionModel().getSelectedItem());
 
-                stage.show();
+                detailsStage.show();
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.error(e);
             }
         }
 

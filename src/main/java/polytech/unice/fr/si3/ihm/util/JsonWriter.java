@@ -31,9 +31,10 @@ public class JsonWriter {
             String content = new String(Files.readAllBytes(Paths.get(dataFilePath)));
             JSONArray jsonIncidents = new JSONArray(content);
             jsonIncidents.put(jsonObject);
-            FileWriter writer = new FileWriter(dataFilePath);
-            writer.append(jsonIncidents.toString());
-            writer.flush();
+            try (FileWriter writer = new FileWriter(dataFilePath)) {
+                writer.append(jsonIncidents.toString());
+                writer.flush();
+            }
         } catch (IOException e) {
             Logger.getLogger("Thrower").warning(e.toString());
         }

@@ -9,7 +9,6 @@ import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import polytech.unice.fr.si3.ihm.controller.MainViewController;
-import polytech.unice.fr.si3.ihm.factory.ModelBuilder;
 import polytech.unice.fr.si3.ihm.util.Constant;
 
 public class Main extends Application {

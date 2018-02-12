@@ -6,7 +6,6 @@ import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -20,13 +19,11 @@ import polytech.unice.fr.si3.ihm.util.Constant;
 import polytech.unice.fr.si3.ihm.util.JsonWriter;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 import static javafx.application.Application.STYLESHEET_MODENA;
 import static javafx.application.Application.setUserAgentStylesheet;
 
-public class AddIncidentController implements Initializable{
+public class AddIncidentController {
 
 
     private Stage stage;
@@ -34,7 +31,7 @@ public class AddIncidentController implements Initializable{
 
 
     private Logger logger = LogManager.getLogger();
-
+    private String categoryTag = "category-selected";
 
 
     @FXML
@@ -95,7 +92,6 @@ public class AddIncidentController implements Initializable{
      */
     @FXML
     void validateIncident(MouseEvent event) {
-        //TODO write the new incident in the data base
         logger.debug("Validate incident button clicked");
         resetErrors();
         if (!incidentTitle.getText().isEmpty() && !incidentDeclarer.getText().isEmpty() && !incidentDescription.getText().isEmpty()) {
@@ -159,7 +155,7 @@ public class AddIncidentController implements Initializable{
             controller.setScene(scene);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e);
         }
     }
 
@@ -168,8 +164,8 @@ public class AddIncidentController implements Initializable{
     @FXML
     void categoryOneClicked(MouseEvent event) {
         logger.debug("category one clicked");
-        incidentCategoryOne.getStyleClass().removeAll("category-selected");
-        incidentCategoryOne.getStyleClass().add("category-selected");
+        incidentCategoryOne.getStyleClass().removeAll(categoryTag);
+        incidentCategoryOne.getStyleClass().add(categoryTag);
         resetCategories(incidentCategoryOne);
     }
 
@@ -177,40 +173,40 @@ public class AddIncidentController implements Initializable{
     @FXML
     void categoryTwoClicked(MouseEvent event) {
         logger.debug("category two clicked");
-        incidentCategoryTwo.getStyleClass().removeAll("category-selected");
-        incidentCategoryTwo.getStyleClass().add("category-selected");
+        incidentCategoryTwo.getStyleClass().removeAll(categoryTag);
+        incidentCategoryTwo.getStyleClass().add(categoryTag);
         resetCategories(incidentCategoryTwo);
     }
 
     @FXML
     void categoryThreeClicked(MouseEvent event) {
         logger.debug("category three clicked");
-        incidentCategoryThree.getStyleClass().removeAll("category-selected");
-        incidentCategoryThree.getStyleClass().add("category-selected");
+        incidentCategoryThree.getStyleClass().removeAll(categoryTag);
+        incidentCategoryThree.getStyleClass().add(categoryTag);
         resetCategories(incidentCategoryThree);
     }
 
     @FXML
     void categoryFourClicked(MouseEvent event) {
         logger.debug("category four clicked");
-        incidentCategoryFour.getStyleClass().removeAll("category-selected");
-        incidentCategoryFour.getStyleClass().add("category-selected");
+        incidentCategoryFour.getStyleClass().removeAll(categoryTag);
+        incidentCategoryFour.getStyleClass().add(categoryTag);
         resetCategories(incidentCategoryFour);
     }
 
     @FXML
     void categoryFiveClicked(MouseEvent event) {
         logger.debug("category five clicked");
-        incidentCategoryFive.getStyleClass().removeAll("category-selected");
-        incidentCategoryFive.getStyleClass().add("category-selected");
+        incidentCategoryFive.getStyleClass().removeAll(categoryTag);
+        incidentCategoryFive.getStyleClass().add(categoryTag);
         resetCategories(incidentCategoryFive);
     }
 
     @FXML
     void categorySixClicked(MouseEvent event) {
         logger.debug("category six clicked");
-        incidentCategorySix.getStyleClass().removeAll("category-selected");
-        incidentCategorySix.getStyleClass().add("category-selected");
+        incidentCategorySix.getStyleClass().removeAll(categoryTag);
+        incidentCategorySix.getStyleClass().add(categoryTag);
         resetCategories(incidentCategorySix);
     }
 
@@ -220,29 +216,25 @@ public class AddIncidentController implements Initializable{
      */
     private void resetCategories(JFXButton button){
         if (!incidentCategoryOne.equals(button)){
-            incidentCategoryOne.getStyleClass().removeAll("category-selected");
+            incidentCategoryOne.getStyleClass().removeAll(categoryTag);
         }
         if (!incidentCategoryTwo.equals(button)){
-            incidentCategoryTwo.getStyleClass().removeAll("category-selected");
+            incidentCategoryTwo.getStyleClass().removeAll(categoryTag);
         }
         if (!incidentCategoryThree.equals(button)){
-            incidentCategoryThree.getStyleClass().removeAll("category-selected");
+            incidentCategoryThree.getStyleClass().removeAll(categoryTag);
         }
         if (!incidentCategoryFour.equals(button)){
-            incidentCategoryFour.getStyleClass().removeAll("category-selected");
+            incidentCategoryFour.getStyleClass().removeAll(categoryTag);
         }
         if (!incidentCategoryFive.equals(button)){
-            incidentCategoryFive.getStyleClass().removeAll("category-selected");
+            incidentCategoryFive.getStyleClass().removeAll(categoryTag);
         }
         if (!incidentCategorySix.equals(button)){
-            incidentCategorySix.getStyleClass().removeAll("category-selected");
+            incidentCategorySix.getStyleClass().removeAll(categoryTag);
         }
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
 
     public void setStage(Stage stage) {
         this.stage = stage;
