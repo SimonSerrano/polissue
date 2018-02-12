@@ -244,6 +244,7 @@ public class AddIncidentController implements Initializable{
 
     }
 
+
     public void setStage(Stage stage) {
         this.stage = stage;
     }
