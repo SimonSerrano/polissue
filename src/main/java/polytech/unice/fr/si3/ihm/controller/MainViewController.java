@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import polytech.unice.fr.si3.ihm.Main;
 import polytech.unice.fr.si3.ihm.factory.ModelBuilder;
 import polytech.unice.fr.si3.ihm.model.Incident;
 import polytech.unice.fr.si3.ihm.util.Constant;
@@ -33,13 +34,13 @@ public class MainViewController implements Initializable {
 
     private Stage stage;
     private Scene scene;
-
     private Logger logger = LogManager.getLogger();
 
     public void setStage(Stage stage) {
         this.stage = stage;
         scene = stage.getScene();
     }
+
 
     @FXML
     private JFXButton searchButton;
@@ -115,8 +116,6 @@ public class MainViewController implements Initializable {
     @FXML
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ModelBuilder mb= new ModelBuilder();
-        ObservableList<Incident> incidents =FXCollections.observableArrayList(mb.readIncidents(Constant.INCIDENT_DATA_JSON));
         incidentsView.setCellFactory(
                 new Callback<ListView<Incident>, ListCell<Incident>>() {
                     @Override
@@ -125,7 +124,7 @@ public class MainViewController implements Initializable {
                     }
                 }
         );
-        incidentsView.setItems(incidents);
+        incidentsView.setItems(Main.INCIDENTS);
 
 
     }

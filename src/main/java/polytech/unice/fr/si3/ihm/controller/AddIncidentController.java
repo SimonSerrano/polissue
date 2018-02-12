@@ -4,6 +4,8 @@ package polytech.unice.fr.si3.ihm.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import polytech.unice.fr.si3.ihm.Main;
 import polytech.unice.fr.si3.ihm.factory.IncidentJSONFactory;
 import polytech.unice.fr.si3.ihm.model.Incident;
 import polytech.unice.fr.si3.ihm.util.Constant;
@@ -31,6 +34,7 @@ public class AddIncidentController implements Initializable{
 
     private Stage stage;
     private Scene scene;
+    private Incident incident;
 
 
     private Logger logger = LogManager.getLogger();
@@ -99,12 +103,7 @@ public class AddIncidentController implements Initializable{
         logger.debug("Validate incident button clicked");
         resetErrors();
         if (!incidentTitle.getText().isEmpty() && !incidentDeclarer.getText().isEmpty() && !incidentDescription.getText().isEmpty()) {
-
-            Incident incident=new Incident(incidentTitle.getText(),incidentDescription.getText(),incidentDeclarer.getText());
-            JsonWriter jsonWriter=new JsonWriter();
-            IncidentJSONFactory incidentJSONFactory=new IncidentJSONFactory();
-            jsonWriter.write(incidentJSONFactory.produce(incident),"src/main/resources/data/incidents.json");
-
+            incident=new Incident(incidentTitle.getText(),incidentDescription.getText(),incidentDeclarer.getText());
             goBackToIncidentList();
         }else {
             showErrors();
@@ -155,6 +154,9 @@ public class AddIncidentController implements Initializable{
             setUserAgentStylesheet(STYLESHEET_MODENA);
 
             MainViewController controller = loader.getController();
+            if(incident!=null){
+                Main.INCIDENTS.add(incident);
+            }
             controller.setStage(stage);
             controller.setScene(scene);
 
@@ -214,6 +216,11 @@ public class AddIncidentController implements Initializable{
         resetCategories(incidentCategorySix);
     }
 
+    @FXML
+    public void exitApplication(ActionEvent event) {
+        Platform.exit();
+    }
+
     /**
      * Resets the selection of the categories
      * @param button the button that has been selected by the user
@@ -243,6 +250,7 @@ public class AddIncidentController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
 
     public void setStage(Stage stage) {
         this.stage = stage;
