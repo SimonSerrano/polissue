@@ -3,31 +3,19 @@ package polytech.unice.fr.si3.ihm.controller;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import polytech.unice.fr.si3.ihm.model.Incident;
-import polytech.unice.fr.si3.ihm.util.Constant;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import static javafx.application.Application.STYLESHEET_MODENA;
-import static javafx.application.Application.setUserAgentStylesheet;
 
 public class IncidentCellController implements Initializable {
     private Incident incident;
 
-    private Logger logger = LogManager.getLogger();
 
     @FXML
     private BorderPane cellParent;
@@ -54,9 +42,15 @@ public class IncidentCellController implements Initializable {
         this.incident = incident;
     }
 
+    /**
+     * reduce the likes count by one
+     *
+     * @param event
+     */
     @FXML
     void downed(ActionEvent event) {
-        //downvote this issue
+        incident.changeLikes(-1);
+        updateLike();
     }
 
     @FXML
@@ -66,7 +60,14 @@ public class IncidentCellController implements Initializable {
 
     @FXML
     void upped(ActionEvent event) {
-        //upvote this issue
+        incident.changeLikes(1);
+        updateLike();
+    }
+
+    private void updateLike() {
+        String likesString = String.valueOf(incident.getLikes()) + " likes";
+        this.likes.setText(likesString);
+
     }
 
 
@@ -76,7 +77,12 @@ public class IncidentCellController implements Initializable {
     }
 
     public void setItem(Incident item) {
+        updateLike();
         this.incident = item;
         this.title.setText(item.getTitle());
+    }
+
+    public Label getLikes() {
+        return likes;
     }
 }

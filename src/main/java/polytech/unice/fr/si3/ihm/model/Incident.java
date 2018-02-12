@@ -10,6 +10,7 @@ public class Incident {
     private String title;
     private String description;
     private String declarer;
+    private int likes;
 
     /**
      * Constructor for an incident
@@ -47,4 +48,11 @@ public class Incident {
         return declarer;
     }
 
+    public int getLikes() {
+        return likes;
+    }
+
+    public void changeLikes(int changeBy) {
+        this.likes += changeBy;
+    }
 }
