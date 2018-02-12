@@ -8,17 +8,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import polytech.unice.fr.si3.ihm.model.Category;
 import polytech.unice.fr.si3.ihm.model.Incident;
 import polytech.unice.fr.si3.ihm.util.Constant;
-import polytech.unice.fr.si3.ihm.util.ImageBuilder;
 
 import java.io.IOException;
 import java.net.URL;
@@ -49,6 +46,9 @@ public class IncidentCellController implements Initializable {
     @FXML
     private ImageView icon;
 
+    public IncidentCellController() {
+        this(new Incident("", "", ""));
+    }
 
     public IncidentCellController(Incident incident) {
         this.incident = incident;
@@ -76,10 +76,7 @@ public class IncidentCellController implements Initializable {
     }
 
     public void setItem(Incident item) {
-        if (item != null) {
-            this.incident = item;
-            this.title.setText(item.getTitle());
-            this.icon.setImage(ImageBuilder.getImage(item.getCategory().getCategoryFilePath()));
-        }
+        this.incident = item;
+        this.title.setText(item.getTitle());
     }
 }

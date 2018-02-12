@@ -18,7 +18,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import polytech.unice.fr.si3.ihm.Main;
 import polytech.unice.fr.si3.ihm.factory.IncidentJSONFactory;
-import polytech.unice.fr.si3.ihm.model.Category;
 import polytech.unice.fr.si3.ihm.model.Incident;
 import polytech.unice.fr.si3.ihm.util.Constant;
 import polytech.unice.fr.si3.ihm.util.JsonWriter;
@@ -30,7 +29,7 @@ import java.util.ResourceBundle;
 import static javafx.application.Application.STYLESHEET_MODENA;
 import static javafx.application.Application.setUserAgentStylesheet;
 
-public class AddIncidentController{
+public class AddIncidentController implements Initializable{
 
 
     private Stage stage;
@@ -39,8 +38,6 @@ public class AddIncidentController{
 
 
     private Logger logger = LogManager.getLogger();
-
-    private Category selectedCategory;
 
 
 
@@ -105,15 +102,14 @@ public class AddIncidentController{
         //TODO write the new incident in the data base
         logger.debug("Validate incident button clicked");
         resetErrors();
-        if (!incidentTitle.getText().isEmpty() && !incidentDeclarer.getText().isEmpty() && !incidentDescription.getText().isEmpty() && selectedCategory != null) {
-            incident=new Incident(incidentTitle.getText(),incidentDescription.getText(),incidentDeclarer.getText(), selectedCategory);
+        if (!incidentTitle.getText().isEmpty() && !incidentDeclarer.getText().isEmpty() && !incidentDescription.getText().isEmpty()) {
+            incident=new Incident(incidentTitle.getText(),incidentDescription.getText(),incidentDeclarer.getText());
             goBackToIncidentList();
         }else {
             showErrors();
         }
 
     }
-
 
     /**
      * Resets the visibility of the error labels
@@ -137,9 +133,6 @@ public class AddIncidentController{
         }
         if (incidentDescription.getText().isEmpty()){
             incidentDescriptionError.setVisible(true);
-        }
-        if (selectedCategory == null){
-            incidentCategoryError.setVisible(true);
         }
     }
 
@@ -180,7 +173,6 @@ public class AddIncidentController{
         incidentCategoryOne.getStyleClass().removeAll("category-selected");
         incidentCategoryOne.getStyleClass().add("category-selected");
         resetCategories(incidentCategoryOne);
-        selectedCategory = Category.HEALTH;
     }
 
 
@@ -190,7 +182,6 @@ public class AddIncidentController{
         incidentCategoryTwo.getStyleClass().removeAll("category-selected");
         incidentCategoryTwo.getStyleClass().add("category-selected");
         resetCategories(incidentCategoryTwo);
-        selectedCategory = Category.BEHAVIOR;
     }
 
     @FXML
@@ -199,7 +190,6 @@ public class AddIncidentController{
         incidentCategoryThree.getStyleClass().removeAll("category-selected");
         incidentCategoryThree.getStyleClass().add("category-selected");
         resetCategories(incidentCategoryThree);
-        selectedCategory = Category.LOGISTIC;
     }
 
     @FXML
@@ -208,7 +198,6 @@ public class AddIncidentController{
         incidentCategoryFour.getStyleClass().removeAll("category-selected");
         incidentCategoryFour.getStyleClass().add("category-selected");
         resetCategories(incidentCategoryFour);
-        selectedCategory = Category.STUFF;
     }
 
     @FXML
@@ -217,7 +206,6 @@ public class AddIncidentController{
         incidentCategoryFive.getStyleClass().removeAll("category-selected");
         incidentCategoryFive.getStyleClass().add("category-selected");
         resetCategories(incidentCategoryFive);
-        selectedCategory = Category.FIVE;
     }
 
     @FXML
@@ -226,7 +214,6 @@ public class AddIncidentController{
         incidentCategorySix.getStyleClass().removeAll("category-selected");
         incidentCategorySix.getStyleClass().add("category-selected");
         resetCategories(incidentCategorySix);
-        selectedCategory = Category.OTHER;
     }
 
     @FXML
@@ -257,6 +244,11 @@ public class AddIncidentController{
         if (!incidentCategorySix.equals(button)){
             incidentCategorySix.getStyleClass().removeAll("category-selected");
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 
 

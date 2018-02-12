@@ -3,7 +3,6 @@ package polytech.unice.fr.si3.ihm.factory;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import polytech.unice.fr.si3.ihm.model.Category;
 import polytech.unice.fr.si3.ihm.model.Incident;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -32,11 +31,10 @@ public class ModelBuilder {
 
             for (int i = 0; i < jsonIncidents.length(); i++) {
                 JSONObject jsonobject = jsonIncidents.getJSONObject(i);
-                String title = jsonobject.getString("title");
-                String description = jsonobject.getString("description");
-                String declarer = jsonobject.getString("declarer");
-                String category = jsonobject.getString("category");
-                Incident incidentCreated=new Incident(title,description,declarer, getCategory(category));
+                String title = (String) jsonobject.get("title");
+                String description = (String) jsonobject.get("description");
+                String declarer = (String) jsonobject.get("declarer");
+                Incident incidentCreated=new Incident(title,description,declarer);
                 incidentList.add(incidentCreated);
             }
 
@@ -44,15 +42,6 @@ public class ModelBuilder {
             Logger.getLogger("Thrower").warning(e.toString());
         }
         return incidentList;
-    }
-
-    private Category getCategory(String categoryString){
-        for (Category category : Category.values()) {
-            if (category.toString().equals(categoryString)){
-                return category;
-            }
-        }
-        return null;
     }
 
 

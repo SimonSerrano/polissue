@@ -4,7 +4,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.ListCell;
 import polytech.unice.fr.si3.ihm.controller.IncidentCellController;
-import polytech.unice.fr.si3.ihm.model.Incident;
 
 import java.io.IOException;
 import java.util.logging.Logger;
@@ -27,7 +26,7 @@ public class IncidentCell extends ListCell<polytech.unice.fr.si3.ihm.model.Incid
     }
 
     @Override
-    protected void updateItem(Incident item, boolean empty) {
+    protected void updateItem(polytech.unice.fr.si3.ihm.model.Incident item, boolean empty) {
         super.updateItem(item, empty);
         if (item != null) controller.setItem(item);
     }
