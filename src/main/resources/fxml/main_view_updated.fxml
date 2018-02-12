@@ -96,7 +96,7 @@
                               <DropShadow />
                            </effect>
                         </JFXButton>
-                        <JFXListView fx:id="incidentsView" VBox.vgrow="ALWAYS" />
+                        <JFXListView fx:id="incidentsView" onMouseClicked="#toDetails" VBox.vgrow="ALWAYS" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
