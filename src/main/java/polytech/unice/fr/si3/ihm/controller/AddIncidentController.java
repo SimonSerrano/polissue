@@ -5,7 +5,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +22,7 @@ import polytech.unice.fr.si3.ihm.model.User;
 import polytech.unice.fr.si3.ihm.util.Constant;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 import static javafx.application.Application.STYLESHEET_MODENA;
 import static javafx.application.Application.setUserAgentStylesheet;
@@ -103,7 +103,8 @@ public class AddIncidentController{
         logger.debug("Validate incident button clicked");
         resetErrors();
         if (!incidentTitle.getText().isEmpty() && !incidentDeclarer.getText().isEmpty() && !incidentDescription.getText().isEmpty() && selectedCategory != null) {
-            incident=new Incident(incidentTitle.getText(),incidentDescription.getText(),new User(incidentDeclarer.getText()), selectedCategory);
+
+            incident=new Incident(incidentTitle.getText(),incidentDescription.getText(),new User(incidentDeclarer.getText()), selectedCategory, LocalDate.now());
             goBackToIncidentList();
         }else {
             showErrors();

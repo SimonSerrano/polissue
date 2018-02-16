@@ -7,7 +7,6 @@ import org.json.JSONObject;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import polytech.unice.fr.si3.ihm.factory.IncidentJSONFactory;
 import polytech.unice.fr.si3.ihm.model.Category;
 import polytech.unice.fr.si3.ihm.model.Incident;
 import polytech.unice.fr.si3.ihm.model.User;
@@ -15,6 +14,7 @@ import polytech.unice.fr.si3.ihm.model.User;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -39,7 +39,7 @@ class JsonWriterTest {
 
     @Test
     void write() throws IOException {
-        Incident incident = new Incident("title", "description", new User("declarer"), Category.OTHER);
+        Incident incident = new Incident("title", "description", new User("declarer"), Category.OTHER, LocalDate.parse("2018-03-09"));
         ObservableList<Incident> incidents= FXCollections.observableArrayList();
         incidents.add(incident);
         writer.write(incidents, filePath);

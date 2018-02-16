@@ -10,6 +10,7 @@ import polytech.unice.fr.si3.ihm.model.User;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -38,7 +39,8 @@ public class ModelBuilder {
                 String description = jsonobject.getString("description");
                 User declarer = new User(jsonobject.getJSONObject("declarer").getString("name"));
                 String category = jsonobject.getString("category");
-                Incident incidentCreated=new Incident(title,description,declarer, getCategory(category));
+                LocalDate declarationDate = LocalDate.parse(jsonobject.getString("declarationDate"));
+                Incident incidentCreated=new Incident(title,description,declarer, getCategory(category), declarationDate);
                 incidentList.add(incidentCreated);
             }
 

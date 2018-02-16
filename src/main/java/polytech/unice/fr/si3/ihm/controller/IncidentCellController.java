@@ -7,13 +7,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import polytech.unice.fr.si3.ihm.model.Incident;
-import polytech.unice.fr.si3.ihm.util.ImageBuilder;
 
 import java.io.IOException;
 
@@ -41,6 +39,8 @@ public class IncidentCellController {
     private Label title;
     @FXML
     private Label category;
+    @FXML
+    private Label date;
 
 
 
@@ -90,6 +90,7 @@ public class IncidentCellController {
         incident = item;
         title.textProperty().bind(new SimpleStringProperty(item.getTitle()));
         category.textProperty().bind(new SimpleStringProperty(item.getCategory().getFrenchString()));
+        date.textProperty().bind(new SimpleStringProperty("déclaré le " + item.getDate().toString()));
     }
 
     public Node getView() {

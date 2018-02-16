@@ -6,7 +6,8 @@ import org.junit.jupiter.api.Test;
 import polytech.unice.fr.si3.ihm.model.Category;
 import polytech.unice.fr.si3.ihm.model.Incident;
 import polytech.unice.fr.si3.ihm.model.User;
-import polytech.unice.fr.si3.ihm.util.Constant;
+
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,7 +23,7 @@ class IncidentJSONFactoryTest {
     @Test
     void produce() {
 
-        Incident incident = new Incident("title", "description", new User("declarer"), Category.OTHER);
+        Incident incident = new Incident("title", "description", new User("declarer"), Category.OTHER, LocalDate.parse("2018-03-09"));
         JSONObject expected = new JSONObject();
         expected.put("title", "title");
         expected.put("description", "description");
