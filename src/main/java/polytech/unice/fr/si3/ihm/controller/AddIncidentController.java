@@ -17,6 +17,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import polytech.unice.fr.si3.ihm.Main;
 import polytech.unice.fr.si3.ihm.model.Category;
+import polytech.unice.fr.si3.ihm.model.Emergency;
 import polytech.unice.fr.si3.ihm.model.Incident;
 import polytech.unice.fr.si3.ihm.model.User;
 import polytech.unice.fr.si3.ihm.util.Constant;
@@ -27,13 +28,14 @@ import java.time.format.DateTimeFormatter;
 
 import static javafx.application.Application.STYLESHEET_MODENA;
 import static javafx.application.Application.setUserAgentStylesheet;
-
+//TODO ADD AN EMERGENCY ATTRIBUTE TO THE INCIDENTS (USE EMERGENCY's ENUM)
 public class AddIncidentController{
 
 
     private Stage stage;
     private Scene scene;
     private Incident incident;
+    private Emergency emergency;
 
 
     private Logger logger = LogManager.getLogger();
@@ -105,7 +107,8 @@ public class AddIncidentController{
         resetErrors();
         if (!incidentTitle.getText().isEmpty() && !incidentDeclarer.getText().isEmpty() && !incidentDescription.getText().isEmpty() && selectedCategory != null) {
             LocalDate date = LocalDate.now();
-            incident=new Incident(incidentTitle.getText(),incidentDescription.getText(),new User(incidentDeclarer.getText()), 1, selectedCategory, date);
+            //TODO change the attribute EMERGENCY.LOW in incidentEmergency.getEmergency() when everything will be implemented.
+            incident=new Incident(incidentTitle.getText(),incidentDescription.getText(),new User(incidentDeclarer.getText()), 1, selectedCategory, date,Emergency.LOW);
             goBackToIncidentList();
         }else {
             showErrors();

@@ -8,6 +8,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import polytech.unice.fr.si3.ihm.model.Category;
+import polytech.unice.fr.si3.ihm.model.Emergency;
 import polytech.unice.fr.si3.ihm.model.Incident;
 import polytech.unice.fr.si3.ihm.model.User;
 
@@ -39,7 +40,7 @@ class JsonWriterTest {
 
     @Test
     void write() throws IOException {
-        Incident incident = new Incident("title", "description", new User("declarer"), 0, Category.OTHER, LocalDate.parse("2018-03-09"));
+        Incident incident = new Incident("title", "description", new User("declarer"), 0, Category.OTHER, LocalDate.parse("2018-03-09"), Emergency.LOW);
         ObservableList<Incident> incidents= FXCollections.observableArrayList();
         incidents.add(incident);
         writer.write(incidents, filePath);

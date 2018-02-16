@@ -4,6 +4,7 @@ package polytech.unice.fr.si3.ihm.factory;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import polytech.unice.fr.si3.ihm.model.Category;
+import polytech.unice.fr.si3.ihm.model.Emergency;
 import polytech.unice.fr.si3.ihm.model.Incident;
 import polytech.unice.fr.si3.ihm.model.User;
 
@@ -46,7 +47,8 @@ public class ModelBuilder {
                 String category = jsonobject.getString("category");
                 LocalDate declarationDate = LocalDate.parse(jsonobject.getString("date"));
                 int likes = jsonobject.getInt("likes");
-                Incident incidentCreated=new Incident(title,description,declarer, likes, getCategory(category), declarationDate);
+                //TODO Same here, change Emergency.Low in the correct Emergency when everything will be implemented.
+                Incident incidentCreated=new Incident(title,description,declarer, likes, getCategory(category), declarationDate, Emergency.LOW);
                 incidentList.add(incidentCreated);
             }
 
