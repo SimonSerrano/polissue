@@ -39,7 +39,7 @@ class JsonWriterTest {
 
     @Test
     void write() throws IOException {
-        Incident incident = new Incident("title", "description", new User("declarer"), Category.OTHER, LocalDate.parse("2018-03-09"));
+        Incident incident = new Incident("title", "description", new User("declarer"), 0, Category.OTHER, LocalDate.parse("2018-03-09"));
         ObservableList<Incident> incidents= FXCollections.observableArrayList();
         incidents.add(incident);
         writer.write(incidents, filePath);

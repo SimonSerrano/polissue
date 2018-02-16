@@ -23,7 +23,7 @@ class ModelBuilderTest {
 
     @Test
     void readIncidents() throws IOException {
-        Incident expected = new Incident("test","encoreTest",new User("toujoursTest"), Category.OTHER, LocalDate.parse("2018-03-09"));
+        Incident expected = new Incident("test","encoreTest",new User("toujoursTest"), 0, Category.OTHER, LocalDate.parse("2018-03-09"));
         assertEquals(expected.getTitle(),  this.mb.readIncidents(this.filePath).get(0).getTitle());
         assertEquals(expected.getDeclarer(),  this.mb.readIncidents(this.filePath).get(0).getDeclarer());
         assertEquals(expected.getDescription(),  this.mb.readIncidents(this.filePath).get(0).getDescription());

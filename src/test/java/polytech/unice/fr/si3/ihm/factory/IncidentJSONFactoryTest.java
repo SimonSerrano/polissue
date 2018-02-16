@@ -23,7 +23,7 @@ class IncidentJSONFactoryTest {
     @Test
     void produce() {
 
-        Incident incident = new Incident("title", "description", new User("declarer"), Category.OTHER, LocalDate.parse("2018-03-09"));
+        Incident incident = new Incident("title", "description", new User("declarer"), 0, Category.OTHER, LocalDate.parse("2018-03-09"));
         JSONObject expected = new JSONObject();
         expected.put("title", "title");
         expected.put("description", "description");

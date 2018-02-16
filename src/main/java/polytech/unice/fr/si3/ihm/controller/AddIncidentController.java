@@ -104,7 +104,7 @@ public class AddIncidentController{
         resetErrors();
         if (!incidentTitle.getText().isEmpty() && !incidentDeclarer.getText().isEmpty() && !incidentDescription.getText().isEmpty() && selectedCategory != null) {
 
-            incident=new Incident(incidentTitle.getText(),incidentDescription.getText(),new User(incidentDeclarer.getText()), selectedCategory, LocalDate.now());
+            incident=new Incident(incidentTitle.getText(),incidentDescription.getText(),new User(incidentDeclarer.getText()), 1, selectedCategory, LocalDate.now());
             goBackToIncidentList();
         }else {
             showErrors();

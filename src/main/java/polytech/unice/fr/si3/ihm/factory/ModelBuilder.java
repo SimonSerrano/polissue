@@ -31,7 +31,12 @@ public class ModelBuilder {
         List<Incident>incidentList=new ArrayList<>();
         try {
             String content = new String(Files.readAllBytes(Paths.get(dataFilePath)));
-            JSONArray jsonIncidents = new JSONArray(content);
+            JSONArray jsonIncidents;
+            if (content.isEmpty()){
+                jsonIncidents = new JSONArray();
+            }else{
+                jsonIncidents = new JSONArray(content);
+            }
 
             for (int i = 0; i < jsonIncidents.length(); i++) {
                 JSONObject jsonobject = jsonIncidents.getJSONObject(i);
@@ -39,8 +44,9 @@ public class ModelBuilder {
                 String description = jsonobject.getString("description");
                 User declarer = new User(jsonobject.getJSONObject("declarer").getString("name"));
                 String category = jsonobject.getString("category");
-                LocalDate declarationDate = LocalDate.parse(jsonobject.getString("declarationDate"));
-                Incident incidentCreated=new Incident(title,description,declarer, getCategory(category), declarationDate);
+                LocalDate declarationDate = LocalDate.parse(jsonobject.getString("date"));
+                int likes = jsonobject.getInt("likes");
+                Incident incidentCreated=new Incident(title,description,declarer, likes, getCategory(category), declarationDate);
                 incidentList.add(incidentCreated);
             }
 

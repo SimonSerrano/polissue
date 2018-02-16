@@ -11,6 +11,7 @@ public class Incident {
     private String title;
     private String description;
     private User declarer;
+    private int likes;
     private Category category;
     private LocalDate date;
 
@@ -19,13 +20,15 @@ public class Incident {
      * @param title the title of the incident
      * @param description the description of the incident
      * @param declarer the declarer of the incident
+     * @param likes
      * @param category the category of the incident
      * @param date the date of declaration of the incident
      */
-    public Incident(String title, String description, User declarer, Category category, LocalDate date) {
+    public Incident(String title, String description, User declarer, int likes, Category category, LocalDate date) {
         this.title = title;
         this.description = description;
         this.declarer= declarer;
+        this.likes = likes;
         this.category = category;
         this.date = date;
     }
@@ -64,5 +67,17 @@ public class Incident {
 
     public LocalDate getDate() {
         return date;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void upvote(){
+        likes++;
+    }
+
+    public void downvote(){
+        likes--;
     }
 }

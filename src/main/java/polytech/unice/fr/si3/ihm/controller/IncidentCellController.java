@@ -72,6 +72,8 @@ public class IncidentCellController {
     @FXML
     void downed(ActionEvent event) {
         //downvote this issue
+        incident.downvote();
+        setItem(incident);
     }
 
     @FXML
@@ -82,6 +84,8 @@ public class IncidentCellController {
     @FXML
     void upped(ActionEvent event) {
         //upvote this issue
+        incident.upvote();
+        setItem(incident);
     }
 
 
@@ -91,6 +95,7 @@ public class IncidentCellController {
         title.textProperty().bind(new SimpleStringProperty(item.getTitle()));
         category.textProperty().bind(new SimpleStringProperty(item.getCategory().getFrenchString()));
         date.textProperty().bind(new SimpleStringProperty("déclaré le " + item.getDate().toString()));
+        likes.textProperty().bind(new SimpleStringProperty(String.valueOf(item.getLikes())));
     }
 
     public Node getView() {
