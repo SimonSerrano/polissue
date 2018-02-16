@@ -5,6 +5,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import polytech.unice.fr.si3.ihm.model.Category;
 import polytech.unice.fr.si3.ihm.model.Incident;
+import polytech.unice.fr.si3.ihm.model.User;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -34,7 +36,7 @@ public class ModelBuilder {
                 JSONObject jsonobject = jsonIncidents.getJSONObject(i);
                 String title = jsonobject.getString("title");
                 String description = jsonobject.getString("description");
-                String declarer = jsonobject.getString("declarer");
+                User declarer = new User(jsonobject.getJSONObject("declarer").getString("name"));
                 String category = jsonobject.getString("category");
                 Incident incidentCreated=new Incident(title,description,declarer, getCategory(category));
                 incidentList.add(incidentCreated);

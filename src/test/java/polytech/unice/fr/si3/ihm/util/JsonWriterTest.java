@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import polytech.unice.fr.si3.ihm.factory.IncidentJSONFactory;
 import polytech.unice.fr.si3.ihm.model.Category;
 import polytech.unice.fr.si3.ihm.model.Incident;
+import polytech.unice.fr.si3.ihm.model.User;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -38,7 +39,7 @@ class JsonWriterTest {
 
     @Test
     void write() throws IOException {
-        Incident incident = new Incident("title", "description", "declarer", Category.OTHER);
+        Incident incident = new Incident("title", "description", new User("declarer"), Category.OTHER);
         ObservableList<Incident> incidents= FXCollections.observableArrayList();
         incidents.add(incident);
         writer.write(incidents, filePath);

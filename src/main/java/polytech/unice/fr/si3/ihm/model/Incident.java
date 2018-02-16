@@ -11,7 +11,7 @@ public class Incident {
 
     private String title;
     private String description;
-    private String declarer;
+    private User declarer;
     private Category category;
 
     /**
@@ -21,7 +21,7 @@ public class Incident {
      * @param declarer the declarer of the incident
      * @param category the category of the incident
      */
-    public Incident(String title, String description, String declarer, Category category) {
+    public Incident(String title, String description, User declarer, Category category) {
         this.title = title;
         this.description = description;
         this.declarer= declarer;
@@ -48,7 +48,7 @@ public class Incident {
      * Getter for the incident's declarer
      * @return the declarer
      */
-    public String getDeclarer() {
+    public User getDeclarer() {
         return declarer;
     }
 

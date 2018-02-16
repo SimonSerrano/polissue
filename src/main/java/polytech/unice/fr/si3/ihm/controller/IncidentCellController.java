@@ -13,6 +13,7 @@ import javafx.scene.layout.BorderPane;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import polytech.unice.fr.si3.ihm.model.Incident;
+import polytech.unice.fr.si3.ihm.util.ImageBuilder;
 
 import java.io.IOException;
 
@@ -39,7 +40,7 @@ public class IncidentCellController {
     @FXML
     private Label title;
     @FXML
-    private ImageView icon;
+    private Label category;
 
 
 
@@ -86,8 +87,9 @@ public class IncidentCellController {
 
 
     public void setItem(Incident item) {
-        this.incident = item;
-        this.title.textProperty().bind(new SimpleStringProperty(item.getTitle()));
+        incident = item;
+        title.textProperty().bind(new SimpleStringProperty(item.getTitle()));
+        category.textProperty().bind(new SimpleStringProperty(item.getCategory().getFrenchString()));
     }
 
     public Node getView() {

@@ -19,6 +19,7 @@ import org.apache.logging.log4j.Logger;
 import polytech.unice.fr.si3.ihm.Main;
 import polytech.unice.fr.si3.ihm.model.Category;
 import polytech.unice.fr.si3.ihm.model.Incident;
+import polytech.unice.fr.si3.ihm.model.User;
 import polytech.unice.fr.si3.ihm.util.Constant;
 
 import java.io.IOException;
@@ -102,7 +103,7 @@ public class AddIncidentController{
         logger.debug("Validate incident button clicked");
         resetErrors();
         if (!incidentTitle.getText().isEmpty() && !incidentDeclarer.getText().isEmpty() && !incidentDescription.getText().isEmpty() && selectedCategory != null) {
-            incident=new Incident(incidentTitle.getText(),incidentDescription.getText(),incidentDeclarer.getText(), selectedCategory);
+            incident=new Incident(incidentTitle.getText(),incidentDescription.getText(),new User(incidentDeclarer.getText()), selectedCategory);
             goBackToIncidentList();
         }else {
             showErrors();

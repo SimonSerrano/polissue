@@ -30,13 +30,12 @@ public class JsonWriter {
      * @param incidents the list of the INCIDENTS to write in the files
      */
     public void write(ObservableList<Incident> incidents, String dataFilePath){
-        try{
+        try(FileWriter writer = new FileWriter(dataFilePath)){
             IncidentJSONFactory incidentJSONFactory=new IncidentJSONFactory();
             JSONArray jsonIncidents = new JSONArray();
             for (Incident in : incidents) {
                 jsonIncidents.put(incidentJSONFactory.produce(in));
             }
-            FileWriter writer = new FileWriter(dataFilePath);
             writer.append(jsonIncidents.toString());
             writer.flush();
         } catch (IOException e) {
