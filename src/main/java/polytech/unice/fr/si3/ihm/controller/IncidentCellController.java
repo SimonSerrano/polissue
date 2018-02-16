@@ -23,6 +23,9 @@ public class IncidentCellController {
 
     private Logger logger = LogManager.getLogger();
 
+    private boolean downvoted = false;
+    private boolean upvoted = false;
+
     @FXML
     private BorderPane cellParent;
 
@@ -72,8 +75,19 @@ public class IncidentCellController {
     @FXML
     void downed(ActionEvent event) {
         //downvote this issue
-        incident.downvote();
-        setItem(incident);
+        if (!downvoted) {
+            incident.downvote();
+            setItem(incident);
+            downvoted = true;
+            upvoted = false;
+            resetVote();
+            downButton.getStyleClass().add("category-selected");
+        }
+    }
+
+    private void resetVote(){
+        upButton.getStyleClass().removeAll("category-selected");
+        downButton.getStyleClass().removeAll("category-selected");
     }
 
     @FXML
@@ -84,8 +98,14 @@ public class IncidentCellController {
     @FXML
     void upped(ActionEvent event) {
         //upvote this issue
-        incident.upvote();
-        setItem(incident);
+        if(!upvoted) {
+            incident.upvote();
+            setItem(incident);
+            upvoted = true;
+            downvoted = false;
+            resetVote();
+            upButton.getStyleClass().add("category-selected");
+        }
     }
 
 
