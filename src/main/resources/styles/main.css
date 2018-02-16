@@ -14,3 +14,10 @@
     -fx-background-color: grey;
 }
 
+.upvoted{
+    -fx-background-color: green;
+}
+
+.downvoted{
+    -fx-background-color: red;
+}

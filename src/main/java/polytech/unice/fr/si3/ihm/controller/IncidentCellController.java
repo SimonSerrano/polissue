@@ -81,13 +81,13 @@ public class IncidentCellController {
             downvoted = true;
             upvoted = false;
             resetVote();
-            downButton.getStyleClass().add("category-selected");
+            downButton.getStyleClass().add("downvoted");
         }
     }
 
     private void resetVote(){
-        upButton.getStyleClass().removeAll("category-selected");
-        downButton.getStyleClass().removeAll("category-selected");
+        upButton.getStyleClass().removeAll("upvoted");
+        downButton.getStyleClass().removeAll("downvoted");
     }
 
     @FXML
@@ -104,7 +104,7 @@ public class IncidentCellController {
             upvoted = true;
             downvoted = false;
             resetVote();
-            upButton.getStyleClass().add("category-selected");
+            upButton.getStyleClass().add("upvoted");
         }
     }
 
