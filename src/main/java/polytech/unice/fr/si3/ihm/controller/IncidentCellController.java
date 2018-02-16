@@ -7,13 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import polytech.unice.fr.si3.ihm.model.Incident;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 
 import static polytech.unice.fr.si3.ihm.util.Constant.INCIDENT_CELL_FXML;
 
@@ -90,10 +90,6 @@ public class IncidentCellController {
         downButton.getStyleClass().removeAll("downvoted");
     }
 
-    @FXML
-    void toDetails(MouseEvent event) {
-        //open details page
-    }
 
     @FXML
     void upped(ActionEvent event) {
@@ -114,7 +110,7 @@ public class IncidentCellController {
         incident = item;
         title.textProperty().bind(new SimpleStringProperty(item.getTitle()));
         category.textProperty().bind(new SimpleStringProperty(item.getCategory().getFrenchString()));
-        date.textProperty().bind(new SimpleStringProperty("déclaré le " + item.getDate().toString()));
+        date.textProperty().bind(new SimpleStringProperty("déclaré le " + item.getDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))));
         likes.textProperty().bind(new SimpleStringProperty(String.valueOf(item.getLikes())));
     }
 

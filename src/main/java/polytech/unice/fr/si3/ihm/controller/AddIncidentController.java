@@ -23,6 +23,7 @@ import polytech.unice.fr.si3.ihm.util.Constant;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import static javafx.application.Application.STYLESHEET_MODENA;
 import static javafx.application.Application.setUserAgentStylesheet;
@@ -103,8 +104,8 @@ public class AddIncidentController{
         logger.debug("Validate incident button clicked");
         resetErrors();
         if (!incidentTitle.getText().isEmpty() && !incidentDeclarer.getText().isEmpty() && !incidentDescription.getText().isEmpty() && selectedCategory != null) {
-
-            incident=new Incident(incidentTitle.getText(),incidentDescription.getText(),new User(incidentDeclarer.getText()), 1, selectedCategory, LocalDate.now());
+            LocalDate date = LocalDate.now();
+            incident=new Incident(incidentTitle.getText(),incidentDescription.getText(),new User(incidentDeclarer.getText()), 1, selectedCategory, date);
             goBackToIncidentList();
         }else {
             showErrors();
