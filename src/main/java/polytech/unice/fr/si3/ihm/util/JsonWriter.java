@@ -26,8 +26,8 @@ public class JsonWriter {
 
 
     /**
-     * Method that writes in the incidents file
-     * @param incidents the list of the incidents to write in the files
+     * Method that writes in the INCIDENTS file
+     * @param incidents the list of the INCIDENTS to write in the files
      */
     public void write(ObservableList<Incident> incidents, String dataFilePath){
         try{

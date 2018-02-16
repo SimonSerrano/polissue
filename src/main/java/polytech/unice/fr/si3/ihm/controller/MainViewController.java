@@ -2,7 +2,8 @@ package polytech.unice.fr.si3.ihm.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
-import javafx.collections.FXCollections;
+import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,20 +18,18 @@ import javafx.util.Callback;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import polytech.unice.fr.si3.ihm.Main;
-import polytech.unice.fr.si3.ihm.factory.ModelBuilder;
 import polytech.unice.fr.si3.ihm.model.Incident;
 import polytech.unice.fr.si3.ihm.util.Constant;
 import polytech.unice.fr.si3.ihm.view.IncidentCell;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import static javafx.application.Application.STYLESHEET_MODENA;
 import static javafx.application.Application.setUserAgentStylesheet;
 
-public class MainViewController implements Initializable {
+public class MainViewController {
 
     private Stage stage;
     private Scene scene;
@@ -113,9 +112,10 @@ public class MainViewController implements Initializable {
 
     }
 
-    @FXML
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+
+
+
+    public void initContent(){
         incidentsView.setCellFactory(
                 new Callback<ListView<Incident>, ListCell<Incident>>() {
                     @Override
@@ -124,10 +124,9 @@ public class MainViewController implements Initializable {
                     }
                 }
         );
-        incidentsView.setItems(Main.INCIDENTS);
-
-
+        incidentsView.itemsProperty().bind(new SimpleListProperty<>(Main.INCIDENTS));
     }
+
 
 
     public void setScene(Scene scene) {

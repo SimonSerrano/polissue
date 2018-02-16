@@ -24,9 +24,13 @@ public class Main extends Application {
     public static ObservableList<Incident> INCIDENTS;
 
     public static void main(String[] args) {
-        ModelBuilder mb= new ModelBuilder();
-        INCIDENTS=FXCollections.observableArrayList(mb.readIncidents(Constant.INCIDENT_DATA_JSON));
         launch(args);
+    }
+
+
+    private void buildContent(){
+        ModelBuilder mb= new ModelBuilder();
+        INCIDENTS =FXCollections.observableArrayList(mb.readIncidents(Constant.INCIDENT_DATA_JSON));
     }
 
 
@@ -35,6 +39,7 @@ public class Main extends Application {
 
         logger.info("Started Polissue");
 
+        buildContent();
 
         logger.debug("Loading FXML for main view from: {}", Constant.MAIN_PAGE_FXML);
         FXMLLoader loader = new FXMLLoader();
@@ -52,6 +57,7 @@ public class Main extends Application {
         controller = loader.getController();
         controller.setStage(primaryStage);
         controller.setScene(scene);
+        controller.initContent();
 
         primaryStage.show();
     }
@@ -61,7 +67,7 @@ public class Main extends Application {
         JsonWriter jsonWriter=new JsonWriter();
         IncidentJSONFactory incidentJSONFactory=new IncidentJSONFactory();
 
-        jsonWriter.write(INCIDENTS,"src/main/resources/data/incidents.json");
+        jsonWriter.write(INCIDENTS,"src/main/resources/data/INCIDENTS.json");
         System.out.println("Stage is closing");
     }
 }

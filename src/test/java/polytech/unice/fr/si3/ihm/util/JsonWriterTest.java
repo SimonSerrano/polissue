@@ -8,6 +8,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import polytech.unice.fr.si3.ihm.factory.IncidentJSONFactory;
+import polytech.unice.fr.si3.ihm.model.Category;
 import polytech.unice.fr.si3.ihm.model.Incident;
 
 import java.io.*;
@@ -20,7 +21,7 @@ class JsonWriterTest {
 
     private JsonWriter writer;
 
-    private String filePath = "src/test/resources/data/incidents.json";
+    private String filePath = "src/test/resources/data/INCIDENTS.json";
 
     @BeforeEach
     void setUp() {
@@ -37,10 +38,10 @@ class JsonWriterTest {
 
     @Test
     void write() throws IOException {
-        Incident incident = new Incident("title", "description", "declarer");
+        Incident incident = new Incident("title", "description", "declarer", Category.OTHER);
         ObservableList<Incident> incidents= FXCollections.observableArrayList();
         incidents.add(incident);
-       writer.write(incidents, filePath);
+        writer.write(incidents, filePath);
 
         String content = new String(Files.readAllBytes(Paths.get(filePath)));
         JSONArray array=new JSONArray();
@@ -48,6 +49,7 @@ class JsonWriterTest {
         expected.put("title", "title");
         expected.put("description", "description");
         expected.put("declarer", "declarer");
+        expected.put("category", "OTHER");
         array.put(expected);
         JSONArray jsonObject = new JSONArray(content);
 

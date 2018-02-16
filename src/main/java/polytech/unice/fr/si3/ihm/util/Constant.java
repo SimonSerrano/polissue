@@ -8,8 +8,8 @@ public class Constant {
     public static final String INCIDENT_CELL_FXML = "/fxml/incident_cell.fxml";
     public static final String INCIDENT_DETAILS_FXML = "/fxml/incident_details.fxml";
 
-    //Database for incidents
-    public static final String INCIDENT_DATA_JSON = System.getProperty("user.dir") + "/src/main/resources/data/incidents.json";
+    //Database for INCIDENTS
+    public static final String INCIDENT_DATA_JSON = System.getProperty("user.dir") + "/src/main/resources/data/INCIDENTS.json";
 
 
     //Images

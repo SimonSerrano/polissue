@@ -1,31 +1,26 @@
 package polytech.unice.fr.si3.ihm.controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import polytech.unice.fr.si3.ihm.model.Incident;
-import polytech.unice.fr.si3.ihm.util.Constant;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-import static javafx.application.Application.STYLESHEET_MODENA;
-import static javafx.application.Application.setUserAgentStylesheet;
+import static polytech.unice.fr.si3.ihm.util.Constant.INCIDENT_CELL_FXML;
 
 public class IncidentCellController {
     private Incident incident;
+    private Node view;
 
     private Logger logger = LogManager.getLogger();
 
@@ -46,12 +41,31 @@ public class IncidentCellController {
     @FXML
     private ImageView icon;
 
-    public IncidentCellController() {
-        this(new Incident("", "", ""));
-    }
+
 
     public IncidentCellController(Incident incident) {
         this.incident = incident;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(INCIDENT_CELL_FXML));
+        try {
+            loader.setControllerFactory(type -> {
+                if (type == IncidentCellController.class) {
+                    return this;
+                } else {
+                    try {
+                        return type.newInstance();
+                    } catch (RuntimeException e) {
+                        throw e;
+                    } catch (Exception e){
+                        throw new RuntimeException();
+                    }
+
+                }
+            });
+            view = loader.load();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -73,6 +87,10 @@ public class IncidentCellController {
 
     public void setItem(Incident item) {
         this.incident = item;
-        this.title.setText(item.getTitle());
+        this.title.textProperty().bind(new SimpleStringProperty(item.getTitle()));
+    }
+
+    public Node getView() {
+        return view;
     }
 }
