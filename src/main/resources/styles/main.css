@@ -1,15 +1,18 @@
 
 
 .category-selected{
-    -fx-border-color: grey;
+    -jfx-button-type: RAISED;
     -fx-border-radius: 50;
-    -fx-background-color: grey;
+    -fx-background-radius: 50;
+    -fx-text-fill: WHITE;
+    -fx-border-color: #2196F3;
+    -fx-background-color: #2196F3;
 }
 
 .filter-selected{
-    -fx-border-color: grey;
+    -fx-border-color: #2196F3;
     -fx-border-radius: 50;
-    -fx-background-color: grey;
+    -fx-background-color: #2196F3;
 }
 
 .cell:hover{

@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="polytech.unice.fr.si3.ihm.controller.MainViewController">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="polytech.unice.fr.si3.ihm.controller.MainViewController">
    <center>
       <HBox>
          <children>
@@ -27,13 +28,17 @@
                                     <Insets right="15.0" />
                                  </HBox.margin>
                               </JFXTextField>
-                              <JFXButton fx:id="searchButton" alignment="CENTER" buttonType="RAISED" onMouseReleased="#searchIncident" prefHeight="33.0" prefWidth="133.0" style="-fx-border-style: solid; -fx-border-color: grey;" text="Rechercher" HBox.hgrow="ALWAYS">
+                              <JFXButton fx:id="searchButton" alignment="CENTER" buttonType="RAISED" onMouseReleased="#searchIncident" prefHeight="33.0" prefWidth="133.0" style="-fx-border-style: solid; -fx-border-color: #2196F3; -fx-border-radius: 50; -fx-background-radius: 50;" stylesheets="@../styles/button.css" text="Rechercher" HBox.hgrow="ALWAYS">
                                  <effect>
                                     <DropShadow />
                                  </effect>
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
+                                 <styleClass>
+                                    <String fx:value="button-raised" />
+                                    <String fx:value="regular-button" />
+                                 </styleClass>
                               </JFXButton>
                               <JFXComboBox fx:id="categoryButton" promptText="Catégories">
                                  <HBox.margin>
@@ -91,12 +96,16 @@
                   </VBox>
                   <VBox prefHeight="318.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <JFXButton fx:id="addIncidentButton" alignment="CENTER" buttonType="RAISED" onMouseReleased="#addIncident" style="-fx-border-style: solid; -fx-border-color: grey;" text="Ajouter un incident">
+                        <JFXButton fx:id="addIncidentButton" alignment="CENTER" buttonType="RAISED" onMouseReleased="#addIncident" style="-fx-border-style: solid; -fx-border-color: #2196F3;" stylesheets="@../styles/button.css" text="Ajouter un incident">
                            <effect>
                               <DropShadow />
                            </effect>
+                           <styleClass>
+                              <String fx:value="button-raised" />
+                              <String fx:value="regular-button" />
+                           </styleClass>
                         </JFXButton>
-                        <JFXListView fx:id="incidentsView" onMouseClicked="#toDetails" VBox.vgrow="ALWAYS" />
+                        <JFXListView fx:id="incidentsView" onMouseClicked="#toDetails" style="-fx-border-color: #2196F3;" VBox.vgrow="ALWAYS" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

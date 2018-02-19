@@ -85,6 +85,7 @@ public class MainViewController {
             logger.debug("Showing JFX scene");
             scene = new Scene(rootNode, 1280, 720);
             scene.getStylesheets().add("/styles/main.css");
+            scene.getStylesheets().add("/styles/button.css");
             stage.setTitle("Polissue - Ajouter un incident");
             stage.setScene(scene);
             setUserAgentStylesheet(STYLESHEET_MODENA);
