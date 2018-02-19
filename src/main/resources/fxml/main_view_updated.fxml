@@ -22,7 +22,7 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="70.0" prefWidth="601.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <JFXTextField alignment="CENTER" maxWidth="1000.0" prefHeight="31.0" prefWidth="150.0">
+                              <JFXTextField fx:id="searchTextField" alignment="CENTER" maxWidth="1000.0" prefHeight="31.0" prefWidth="150.0">
                                  <HBox.margin>
                                     <Insets right="15.0" />
                                  </HBox.margin>
@@ -35,7 +35,7 @@
                                     <Insets />
                                  </HBox.margin>
                               </JFXButton>
-                              <JFXComboBox promptText="Catégories">
+                              <JFXComboBox fx:id="categoryButton" promptText="Catégories">
                                  <HBox.margin>
                                     <Insets left="50.0" right="15.0" />
                                  </HBox.margin>
@@ -45,7 +45,7 @@
                         <HBox alignment="CENTER" prefHeight="69.0" prefWidth="450.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Label prefHeight="69.0" prefWidth="88.0" text="Trier :" HBox.hgrow="ALWAYS" />
-                              <JFXButton fx:id="searchButton1" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseReleased="#searchIncident" prefHeight="35.0" prefWidth="86.0" style="-fx-border-style: solid; -fx-border-color: grey;" text="Likes" HBox.hgrow="ALWAYS">
+                              <JFXButton fx:id="LikesButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#likesButtonClicked" prefHeight="35.0" prefWidth="86.0" style="-fx-border-style: solid; -fx-border-color: grey;" text="Likes" HBox.hgrow="ALWAYS">
                                  <effect>
                                     <DropShadow />
                                  </effect>
@@ -53,7 +53,7 @@
                                     <Insets />
                                  </HBox.margin>
                               </JFXButton>
-                              <JFXButton fx:id="searchButton13" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseReleased="#searchIncident" prefHeight="35.0" prefWidth="98.0" style="-fx-border-style: solid; -fx-border-color: grey;" text="Emergency" HBox.hgrow="ALWAYS">
+                              <JFXButton fx:id="EmergencyButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#emergencyButtonClicked" prefHeight="35.0" prefWidth="98.0" style="-fx-border-style: solid; -fx-border-color: grey;" text="Emergency" HBox.hgrow="ALWAYS">
                                  <effect>
                                     <DropShadow />
                                  </effect>
@@ -61,7 +61,7 @@
                                     <Insets left="25.0" />
                                  </HBox.margin>
                               </JFXButton>
-                              <JFXButton fx:id="searchButton14" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseReleased="#searchIncident" prefHeight="35.0" prefWidth="86.0" style="-fx-border-style: solid; -fx-border-color: grey;" text="Likes" HBox.hgrow="ALWAYS">
+                              <JFXButton fx:id="DateButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#dateButtonClicked" prefHeight="35.0" prefWidth="86.0" style="-fx-border-style: solid; -fx-border-color: grey;" text="Date" HBox.hgrow="ALWAYS">
                                  <effect>
                                     <DropShadow />
                                  </effect>
@@ -69,7 +69,7 @@
                                     <Insets left="25.0" />
                                  </HBox.margin>
                               </JFXButton>
-                              <JFXButton fx:id="searchButton11" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseReleased="#searchIncident" prefHeight="25.0" prefWidth="40.0" style="-fx-border-style: solid; -fx-border-color: grey;" text="+" HBox.hgrow="ALWAYS">
+                              <JFXButton fx:id="plusButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#plusButtonClicked" prefHeight="25.0" prefWidth="40.0" style="-fx-border-style: solid; -fx-border-color: grey;" text="+" HBox.hgrow="ALWAYS">
                                  <effect>
                                     <DropShadow />
                                  </effect>
@@ -77,7 +77,7 @@
                                     <Insets left="40.0" />
                                  </HBox.margin>
                               </JFXButton>
-                              <JFXButton fx:id="searchButton12" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseReleased="#searchIncident" prefHeight="25.0" prefWidth="40.0" style="-fx-border-style: solid; -fx-border-color: grey;" text="-" HBox.hgrow="ALWAYS">
+                              <JFXButton fx:id="minusButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#minusButtonClicked" prefHeight="25.0" prefWidth="40.0" style="-fx-border-style: solid; -fx-border-color: grey;" text="-" HBox.hgrow="ALWAYS">
                                  <effect>
                                     <DropShadow />
                                  </effect>

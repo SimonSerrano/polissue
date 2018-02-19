@@ -3,10 +3,15 @@ package polytech.unice.fr.si3.ihm.factory;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import polytech.unice.fr.si3.ihm.model.Category;
+import polytech.unice.fr.si3.ihm.model.Emergency;
 import polytech.unice.fr.si3.ihm.model.Incident;
+import polytech.unice.fr.si3.ihm.model.User;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -20,21 +25,30 @@ public class ModelBuilder {
     }
 
     /**
-     * Method that reads the file containing all the incidents registered
+     * Method that reads the file containing all the INCIDENTS registered
      *
      */
     public List<Incident> readIncidents(String dataFilePath){
         List<Incident>incidentList=new ArrayList<>();
         try {
             String content = new String(Files.readAllBytes(Paths.get(dataFilePath)));
-            JSONArray jsonIncidents = new JSONArray(content);
+            JSONArray jsonIncidents;
+            if (content.isEmpty()){
+                jsonIncidents = new JSONArray();
+            }else{
+                jsonIncidents = new JSONArray(content);
+            }
 
             for (int i = 0; i < jsonIncidents.length(); i++) {
                 JSONObject jsonobject = jsonIncidents.getJSONObject(i);
-                String title = (String) jsonobject.get("title");
-                String description = (String) jsonobject.get("description");
-                String declarer = (String) jsonobject.get("declarer");
-                Incident incidentCreated=new Incident(title,description,declarer);
+                String title = jsonobject.getString("title");
+                String description = jsonobject.getString("description");
+                User declarer = new User(jsonobject.getJSONObject("declarer").getString("name"));
+                String category = jsonobject.getString("category");
+                LocalDate declarationDate = LocalDate.parse(jsonobject.getString("date"));
+                int likes = jsonobject.getInt("likes");
+                //TODO Same here, change Emergency.Low in the correct Emergency when everything will be implemented.
+                Incident incidentCreated=new Incident(title,description,declarer, likes, getCategory(category), declarationDate, Emergency.LOW);
                 incidentList.add(incidentCreated);
             }
 
@@ -42,6 +56,15 @@ public class ModelBuilder {
             Logger.getLogger("Thrower").warning(e.toString());
         }
         return incidentList;
+    }
+
+    private Category getCategory(String categoryString){
+        for (Category category : Category.values()) {
+            if (category.toString().equals(categoryString)){
+                return category;
+            }
+        }
+        return null;
     }
 
 

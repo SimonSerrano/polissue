@@ -1,7 +1,10 @@
 package polytech.unice.fr.si3.ihm.util;
 
+import javafx.collections.ObservableList;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import polytech.unice.fr.si3.ihm.factory.IncidentJSONFactory;
+import polytech.unice.fr.si3.ihm.model.Incident;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -23,18 +26,18 @@ public class JsonWriter {
 
 
     /**
-     * Method that writes in the incidents file
-     * @param jsonObject the json object to write in the file
+     * Method that writes in the INCIDENTS file
+     * @param incidents the list of the INCIDENTS to write in the files
      */
-    public void write(JSONObject jsonObject, String dataFilePath){
-        try{
-            String content = new String(Files.readAllBytes(Paths.get(dataFilePath)));
-            JSONArray jsonIncidents = new JSONArray(content);
-            jsonIncidents.put(jsonObject);
-            try (FileWriter writer = new FileWriter(dataFilePath)) {
-                writer.append(jsonIncidents.toString());
-                writer.flush();
+    public void write(ObservableList<Incident> incidents, String dataFilePath){
+        try(FileWriter writer = new FileWriter(dataFilePath)){
+            IncidentJSONFactory incidentJSONFactory=new IncidentJSONFactory();
+            JSONArray jsonIncidents = new JSONArray();
+            for (Incident in : incidents) {
+                jsonIncidents.put(incidentJSONFactory.produce(in));
             }
+            writer.append(jsonIncidents.toString());
+            writer.flush();
         } catch (IOException e) {
             Logger.getLogger("Thrower").warning(e.toString());
         }

@@ -3,28 +3,44 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
-<BorderPane prefHeight="118.0" prefWidth="558.0" xmlns="http://javafx.com/javafx/8.0.141"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="polytech.unice.fr.si3.ihm.controller.IncidentCellController">
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="118.0" prefWidth="558.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="polytech.unice.fr.si3.ihm.controller.IncidentCellController">
    <center>
       <TilePane alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
-             <Label fx:id="likes" alignment="CENTER" minWidth="75.0" text="10 Likes"/>
+            <Label fx:id="likes" alignment="CENTER" prefWidth="33.0" text="Likes" />
             <JFXButton fx:id="upButton" buttonType="RAISED" onAction="#upped" prefHeight="31.0" prefWidth="69.0" text="Yep" />
             <JFXButton fx:id="downButton" buttonType="RAISED" onAction="#downed" prefHeight="31.0" prefWidth="69.0" text="Nope" />
          </children>
       </TilePane>
    </center>
    <left>
-      <Label fx:id="title" alignment="TOP_LEFT" prefHeight="21.0" text="Je suis un incident" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets left="10.0" right="10.0" />
          </BorderPane.margin>
-      </Label>
+         <children>
+            <Label fx:id="title" alignment="TOP_LEFT" prefHeight="21.0" text="Je suis un incident" VBox.vgrow="ALWAYS" />
+            <Label fx:id="date" text="date" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="System Italic" size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
    </left>
    <right>
-      <ImageView fx:id="icon" fitHeight="118.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+      <Label fx:id="category" alignment="CENTER" text="Category" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </right>
 </BorderPane>

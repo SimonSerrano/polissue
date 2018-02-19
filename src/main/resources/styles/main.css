@@ -14,3 +14,16 @@
     -fx-background-color: grey;
 }
 
+.filter-selected{
+    -fx-border-color: grey;
+    -fx-border-radius: 50;
+    -fx-background-color: grey;
+}
+
+.upvoted{
+    -fx-background-color: green;
+}
+
+.downvoted{
+    -fx-background-color: red;
+}

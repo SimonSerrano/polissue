@@ -1,21 +1,30 @@
 package polytech.unice.fr.si3.ihm.controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import polytech.unice.fr.si3.ihm.model.Incident;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 
-public class IncidentCellController implements Initializable {
+import static polytech.unice.fr.si3.ihm.util.Constant.INCIDENT_CELL_FXML;
+
+public class IncidentCellController {
     private Incident incident;
+    private Node view;
 
+    private Logger logger = LogManager.getLogger();
+
+    private boolean downvoted = false;
+    private boolean upvoted = false;
 
     @FXML
     private BorderPane cellParent;
@@ -32,57 +41,80 @@ public class IncidentCellController implements Initializable {
     @FXML
     private Label title;
     @FXML
-    private ImageView icon;
+    private Label category;
+    @FXML
+    private Label date;
 
-    public IncidentCellController() {
-        this(new Incident("", "", ""));
-    }
+
 
     public IncidentCellController(Incident incident) {
         this.incident = incident;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(INCIDENT_CELL_FXML));
+        try {
+            loader.setControllerFactory(type -> {
+                if (type == IncidentCellController.class) {
+                    return this;
+                } else {
+                    try {
+                        return type.newInstance();
+                    } catch (RuntimeException e) {
+                        throw e;
+                    } catch (Exception e){
+                        throw new RuntimeException();
+                    }
+
+                }
+            });
+            view = loader.load();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    /**
-     * reduce the likes count by one
-     *
-     * @param event
-     */
     @FXML
     void downed(ActionEvent event) {
-        incident.changeLikes(-1);
-        updateLike();
+        //downvote this issue
+        if (!downvoted) {
+            incident.downvote();
+            setItem(incident);
+            downvoted = true;
+            upvoted = false;
+            resetVote();
+            downButton.getStyleClass().add("downvoted");
+        }
     }
 
-    @FXML
-    void toDetails(MouseEvent event) {
-        //open details page
+    private void resetVote(){
+        upButton.getStyleClass().removeAll("upvoted");
+        downButton.getStyleClass().removeAll("downvoted");
     }
+
 
     @FXML
     void upped(ActionEvent event) {
-        incident.changeLikes(1);
-        updateLike();
+        //upvote this issue
+        if(!upvoted) {
+            incident.upvote();
+            setItem(incident);
+            upvoted = true;
+            downvoted = false;
+            resetVote();
+            upButton.getStyleClass().add("upvoted");
+        }
     }
 
-    private void updateLike() {
-        String likesString = String.valueOf(incident.getLikes()) + " likes";
-        this.likes.setText(likesString);
 
-    }
-
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        setItem(incident);
-    }
 
     public void setItem(Incident item) {
-        updateLike();
-        this.incident = item;
-        this.title.setText(item.getTitle());
+        incident = item;
+        title.textProperty().bind(new SimpleStringProperty(item.getTitle()));
+        category.textProperty().bind(new SimpleStringProperty(item.getCategory().getFrenchString()));
+        date.textProperty().bind(new SimpleStringProperty("déclaré le " + item.getDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))));
+        likes.textProperty().bind(new SimpleStringProperty(String.valueOf(item.getLikes())));
     }
 
-    public Label getLikes() {
-        return likes;
+    public Node getView() {
+        return view;
     }
 }
