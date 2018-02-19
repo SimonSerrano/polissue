@@ -29,7 +29,6 @@ import java.time.LocalDate;
 
 import static javafx.application.Application.STYLESHEET_MODENA;
 import static javafx.application.Application.setUserAgentStylesheet;
-//TODO ADD AN EMERGENCY ATTRIBUTE TO THE INCIDENTS (USE EMERGENCY's ENUM)
 public class AddIncidentController{
 
 
@@ -56,7 +55,7 @@ public class AddIncidentController{
     private JFXTextArea incidentDescription;
 
     @FXML
-    private Label incidentLocation;
+    private JFXTextArea incidentLocation;
 
     @FXML
     private JFXButton incidentCategoryOne;
@@ -116,7 +115,7 @@ public class AddIncidentController{
         resetErrors();
         if (!incidentTitle.getText().isEmpty() && !incidentDeclarer.getText().isEmpty() && !incidentDescription.getText().isEmpty() && selectedCategory != null) {
             LocalDate date = LocalDate.now();
-            //TODO change the attribute EMERGENCY.LOW in incidentEmergency.getEmergency() when everything will be implemented.
+
             incident = new Incident(
                     incidentTitle.getText(),
                     incidentDescription.getText(),
@@ -124,9 +123,7 @@ public class AddIncidentController{
                     1,
                     selectedCategory,
                     date,
-                    Emergency.LOW,
                     convertSlideResult((int)incidentEmergencySlider.getValue()),
-
                     incidentLocation.getText()
             );
             goBackToIncidentList();
