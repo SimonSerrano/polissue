@@ -47,8 +47,8 @@ public class ModelBuilder {
                 String category = jsonobject.getString("category");
                 LocalDate declarationDate = LocalDate.parse(jsonobject.getString("date"));
                 int likes = jsonobject.getInt("likes");
-                //TODO Same here, change Emergency.Low in the correct Emergency when everything will be implemented.
-                Incident incidentCreated=new Incident(title,description,declarer, likes, getCategory(category), declarationDate, Emergency.LOW);
+                String emergency= jsonobject.getString("emergency");
+                Incident incidentCreated=new Incident(title,description,declarer, likes, getCategory(category), declarationDate,getEmergency(emergency));
                 incidentList.add(incidentCreated);
             }
 
@@ -62,6 +62,15 @@ public class ModelBuilder {
         for (Category category : Category.values()) {
             if (category.toString().equals(categoryString)){
                 return category;
+            }
+        }
+        return null;
+    }
+
+    private Emergency getEmergency(String emergencyString){
+        for(Emergency emergency: Emergency.values()){
+            if(emergency.toString().equals(emergencyString)){
+                return emergency;
             }
         }
         return null;

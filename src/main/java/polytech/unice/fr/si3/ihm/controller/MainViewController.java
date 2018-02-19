@@ -93,6 +93,7 @@ public class MainViewController {
             AddIncidentController controller = loader.getController();
             controller.setStage(stage);
             controller.setScene(scene);
+            controller.initContent();
 
         } catch (IOException e) {
             e.printStackTrace();
