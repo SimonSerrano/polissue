@@ -262,7 +262,8 @@ public class MainViewController {
             else
                 return 0;
         });
-
+        resetFilters();
+        resetTypeOfSort();
     }
 
     public void sortText(String txt){
