@@ -80,15 +80,9 @@ public class IncidentCellController {
             setItem(incident);
             downvoted = true;
             upvoted = false;
-            resetVote();
-            downButton.getStyleClass().add("downvoted");
         }
     }
 
-    private void resetVote(){
-        upButton.getStyleClass().removeAll("upvoted");
-        downButton.getStyleClass().removeAll("downvoted");
-    }
 
 
     @FXML
@@ -99,8 +93,6 @@ public class IncidentCellController {
             setItem(incident);
             upvoted = true;
             downvoted = false;
-            resetVote();
-            upButton.getStyleClass().add("upvoted");
         }
     }
 

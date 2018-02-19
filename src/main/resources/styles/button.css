@@ -1,0 +1,26 @@
+.button-raised{
+    -jfx-button-type: RAISED;
+    -fx-text-fill: WHITE;
+    -fx-pref-height: 31.0;
+    -fx-pref-width: 25.0;
+}
+
+
+
+.upvote-button{
+    -fx-background-color: #4CAF50;
+}
+
+.downvote_button{
+    -fx-background-color: #F44336;
+}
+
+
+.upvote-button:hover{
+    -fx-background-color: linear-gradient(#4CAF50, #1B5E20)
+}
+
+
+.downvote_button:hover{
+    -fx-background-color: linear-gradient(#F44336, #B71C1C);
+}
