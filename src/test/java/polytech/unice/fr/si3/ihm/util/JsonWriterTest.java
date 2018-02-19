@@ -12,12 +12,13 @@ import polytech.unice.fr.si3.ihm.model.Emergency;
 import polytech.unice.fr.si3.ihm.model.Incident;
 import polytech.unice.fr.si3.ihm.model.User;
 
-import java.io.*;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class JsonWriterTest {
 
@@ -40,7 +41,7 @@ class JsonWriterTest {
 
     @Test
     void write() throws IOException {
-        Incident incident = new Incident("title", "description", new User("declarer"), 0, Category.OTHER, LocalDate.parse("2018-03-09"), Emergency.LOW);
+        Incident incident = new Incident("title", "description", new User("declarer"), 0, Category.OTHER, LocalDate.parse("2018-03-09"), Emergency.LOW, "");
         ObservableList<Incident> incidents= FXCollections.observableArrayList();
         incidents.add(incident);
         writer.write(incidents, filePath);

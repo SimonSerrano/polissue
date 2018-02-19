@@ -15,6 +15,8 @@ public class Incident {
     private Category category;
     private LocalDate date;
     private Emergency emergency;
+    private String location;
+
     /**
      * Constructor for an incident
      * @param title the title of the incident
@@ -24,8 +26,9 @@ public class Incident {
      * @param category the category of the incident
      * @param date the date of declaration of the incident
      * @param emergency  the type of emergency of the incident ( Very/Less Urgent)
+     * @param location the issue location
      */
-    public Incident(String title, String description, User declarer, int likes, Category category, LocalDate date,Emergency emergency) {
+    public Incident(String title, String description, User declarer, int likes, Category category, LocalDate date, Emergency emergency, String location) {
         this.title = title;
         this.description = description;
         this.declarer= declarer;
@@ -33,6 +36,7 @@ public class Incident {
         this.category = category;
         this.date = date;
         this.emergency=emergency;
+        this.location = location;
     }
 
     /**
@@ -85,5 +89,9 @@ public class Incident {
 
     public void downvote(){
         likes--;
+    }
+
+    public String getLocation() {
+        return location;
     }
 }

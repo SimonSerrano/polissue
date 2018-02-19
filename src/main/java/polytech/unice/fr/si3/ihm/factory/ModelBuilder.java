@@ -48,7 +48,7 @@ public class ModelBuilder {
                 LocalDate declarationDate = LocalDate.parse(jsonobject.getString("date"));
                 int likes = jsonobject.getInt("likes");
                 //TODO Same here, change Emergency.Low in the correct Emergency when everything will be implemented.
-                Incident incidentCreated=new Incident(title,description,declarer, likes, getCategory(category), declarationDate, Emergency.LOW);
+                Incident incidentCreated = new Incident(title, description, declarer, likes, getCategory(category), declarationDate, Emergency.LOW, "");
                 incidentList.add(incidentCreated);
             }
 

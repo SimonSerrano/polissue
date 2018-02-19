@@ -24,7 +24,6 @@ import polytech.unice.fr.si3.ihm.util.Constant;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import static javafx.application.Application.STYLESHEET_MODENA;
 import static javafx.application.Application.setUserAgentStylesheet;
@@ -53,6 +52,8 @@ public class AddIncidentController{
     @FXML
     private JFXTextArea incidentDescription;
 
+    @FXML
+    private Label incidentLocation;
 
     @FXML
     private JFXButton incidentCategoryOne;
@@ -85,6 +86,11 @@ public class AddIncidentController{
     @FXML
     private Label incidentCategoryError;
 
+    @FXML
+    private Label incidentLocationError;
+
+
+
 
     /**
      * Manages the click on the back button
@@ -108,7 +114,16 @@ public class AddIncidentController{
         if (!incidentTitle.getText().isEmpty() && !incidentDeclarer.getText().isEmpty() && !incidentDescription.getText().isEmpty() && selectedCategory != null) {
             LocalDate date = LocalDate.now();
             //TODO change the attribute EMERGENCY.LOW in incidentEmergency.getEmergency() when everything will be implemented.
-            incident=new Incident(incidentTitle.getText(),incidentDescription.getText(),new User(incidentDeclarer.getText()), 1, selectedCategory, date,Emergency.LOW);
+            incident = new Incident(
+                    incidentTitle.getText(),
+                    incidentDescription.getText(),
+                    new User(incidentDeclarer.getText()),
+                    1,
+                    selectedCategory,
+                    date,
+                    Emergency.LOW,
+                    incidentLocation.getText()
+            );
             goBackToIncidentList();
         }else {
             showErrors();
@@ -125,6 +140,7 @@ public class AddIncidentController{
         incidentDeclarerError.setVisible(false);
         incidentDescriptionError.setVisible(false);
         incidentCategoryError.setVisible(false);
+        incidentLocationError.setVisible(true);
     }
 
     /**
@@ -142,6 +158,9 @@ public class AddIncidentController{
         }
         if (selectedCategory == null){
             incidentCategoryError.setVisible(true);
+        }
+        if (incidentLocation.getText().isEmpty()) {
+            incidentLocationError.setVisible(true);
         }
     }
 

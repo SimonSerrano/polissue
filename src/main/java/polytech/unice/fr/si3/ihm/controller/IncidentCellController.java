@@ -44,6 +44,8 @@ public class IncidentCellController {
     private Label category;
     @FXML
     private Label date;
+    @FXML
+    private Label location;
 
 
 
@@ -112,6 +114,7 @@ public class IncidentCellController {
         category.textProperty().bind(new SimpleStringProperty(item.getCategory().getFrenchString()));
         date.textProperty().bind(new SimpleStringProperty("déclaré le " + item.getDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))));
         likes.textProperty().bind(new SimpleStringProperty(String.valueOf(item.getLikes())));
+        location.textProperty().bind(new SimpleStringProperty(item.getLocation()));
     }
 
     public Node getView() {
