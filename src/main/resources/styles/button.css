@@ -1,18 +1,44 @@
 .button-raised{
     -jfx-button-type: RAISED;
     -fx-text-fill: WHITE;
+}
+
+.regular-button{
+    -fx-background-color: #2196F3;
+}
+
+.category-button{
+    -jfx-button-type: FLAT;
+    -fx-border-color: grey;
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
+}
+
+.category-button:hover{
+    -jfx-button-type: RAISED;
+    -fx-border-color: grey;
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
+}
+
+.category-button:focused{
+    -jfx-button-type: RAISED;
+    -fx-border-color: grey;
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
+    -fx-text-fill: WHITE;
+}
+
+.upvote-button{
+    -fx-background-color: #4CAF50;
     -fx-pref-height: 31.0;
     -fx-pref-width: 25.0;
 }
 
-
-
-.upvote-button{
-    -fx-background-color: #4CAF50;
-}
-
 .downvote_button{
     -fx-background-color: #F44336;
+    -fx-pref-height: 31.0;
+    -fx-pref-width: 25.0;
 }
 
 

@@ -2,6 +2,7 @@ package polytech.unice.fr.si3.ihm.controller;
 
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXSlider;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
@@ -13,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import polytech.unice.fr.si3.ihm.Main;
@@ -41,7 +43,8 @@ public class AddIncidentController{
 
     private Category selectedCategory;
 
-
+    @FXML
+    private JFXSlider incidentEmergencySlider;
 
     @FXML
     private JFXTextField incidentTitle;
@@ -122,6 +125,8 @@ public class AddIncidentController{
                     selectedCategory,
                     date,
                     Emergency.LOW,
+                    convertSlideResult((int)incidentEmergencySlider.getValue()),
+
                     incidentLocation.getText()
             );
             goBackToIncidentList();
@@ -161,6 +166,21 @@ public class AddIncidentController{
         }
         if (incidentLocation.getText().isEmpty()) {
             incidentLocationError.setVisible(true);
+        }
+    }
+
+    public Emergency convertSlideResult(int result){
+        switch (result){
+            case 0:
+                return Emergency.LOW;
+            case 1:
+                return Emergency.MEDIUM;
+            case 2:
+                return Emergency.HIGH;
+            case 3:
+                return Emergency.CRITICAL;
+            default:
+                return Emergency.MEDIUM;
         }
     }
 
@@ -269,6 +289,48 @@ public class AddIncidentController{
 
     public void setScene(Scene scene) {
         this.scene = scene;
+    }
+
+    public void initContent(){
+        incidentEmergencySlider.setValue(1);
+        incidentEmergencySlider.setMinorTickCount(0);
+        incidentEmergencySlider.setMajorTickUnit(1);
+        incidentEmergencySlider.setSnapToTicks(true);
+        incidentEmergencySlider.setShowTickMarks(true);
+        incidentEmergencySlider.setShowTickLabels(true);
+
+        incidentEmergencySlider.setLabelFormatter(new StringConverter<Double>() {
+            @Override
+            public String toString(Double n) {
+                if (n < 0.5){
+                    return Emergency.LOW.toString();
+                }
+                if (n < 1.5) {
+                    return Emergency.MEDIUM.toString();
+                }
+                if (n < 2.5) {
+                    return Emergency.HIGH.toString();
+                }
+                return Emergency.CRITICAL.toString();
+            }
+
+            @Override
+            public Double fromString(String s) {
+                switch (s) {
+                    case "Novice":
+                        return 0d;
+                    case "Intermediate":
+                        return 1d;
+                    case "Advanced":
+                        return 2d;
+                    case "Expert":
+                        return 3d;
+
+                    default:
+                        return 3d;
+                }
+            }
+        });
     }
 
 }

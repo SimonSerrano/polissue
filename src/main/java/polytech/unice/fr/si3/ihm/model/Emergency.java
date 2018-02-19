@@ -1,10 +1,9 @@
 package polytech.unice.fr.si3.ihm.model;
 
 public enum Emergency {
-    CRITICAL(4),
-    HIGH(3),
-    MEDIUM(2),
-    MODERATE(1),
+    CRITICAL(3),
+    HIGH(2),
+    MEDIUM(1),
     LOW(0);
 
     public int index;
