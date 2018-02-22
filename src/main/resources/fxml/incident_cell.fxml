@@ -4,64 +4,87 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="118.0" prefWidth="558.0" styleClass="cell" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="polytech.unice.fr.si3.ihm.controller.IncidentCellController">
-   <center>
-      <TilePane alignment="CENTER" BorderPane.alignment="CENTER">
+
+<VBox fx:id="cell" alignment="CENTER" onMouseClicked="#cellClick" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="polytech.unice.fr.si3.ihm.controller.IncidentCellController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label fx:id="likes" alignment="CENTER" prefWidth="33.0" text="Likes" />
-            <JFXButton fx:id="upButton" buttonType="RAISED" onAction="#upped" prefHeight="31.0" prefWidth="25.0" stylesheets="@../styles/button.css" text="↑">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="button-raised" />
-                  <String fx:value="upvote-button" />
-               </styleClass></JFXButton>
-            <JFXButton fx:id="downButton" buttonType="RAISED" onAction="#downed" prefHeight="31.0" prefWidth="26.0" stylesheets="@../styles/button.css" text="↓">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="button-raised" />
-                  <String fx:value="downvote_button" />
-               </styleClass></JFXButton>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label fx:id="title" alignment="TOP_LEFT" prefHeight="21.0" text="Je suis un incident" VBox.vgrow="ALWAYS" />
+                  <Label fx:id="date" text="date" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Italic" size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="40.0" right="40.0" />
+               </HBox.margin>
+            </VBox>
+            <TilePane alignment="CENTER">
+               <children>
+                  <Label fx:id="likes" alignment="CENTER" prefWidth="33.0" text="Likes" />
+                  <JFXButton fx:id="upButton" buttonType="RAISED" onAction="#upped" prefHeight="31.0" prefWidth="25.0" stylesheets="@../styles/button.css" text="↑">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="button-raised" />
+                        <String fx:value="upvote-button" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton fx:id="downButton" buttonType="RAISED" onAction="#downed" prefHeight="31.0" prefWidth="26.0" stylesheets="@../styles/button.css" text="↓">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="button-raised" />
+                        <String fx:value="downvote_button" />
+                     </styleClass>
+                  </JFXButton>
+               </children>
+               <HBox.margin>
+                  <Insets left="40.0" right="40.0" />
+               </HBox.margin>
+            </TilePane>
+            <VBox alignment="CENTER" prefHeight="78.0" prefWidth="138.0">
+               <children>
+                  <Label fx:id="category" alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="35.0" prefWidth="136.0" text="Category">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Rectangle fx:id="emergency" arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="26.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
+               </children>
+               <HBox.margin>
+                  <Insets left="40.0" right="40.0" />
+               </HBox.margin>
+            </VBox>
          </children>
-      </TilePane>
-   </center>
-   <left>
-      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets left="10.0" right="10.0" />
-         </BorderPane.margin>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <VBox fx:id="bottomCell" alignment="CENTER" prefHeight="40.0" prefWidth="558.0">
          <children>
-            <Label fx:id="title" alignment="TOP_LEFT" prefHeight="21.0" text="Je suis un incident" VBox.vgrow="ALWAYS" />
-            <Label fx:id="date" text="date" VBox.vgrow="ALWAYS">
-               <font>
-                  <Font name="System Italic" size="10.0" />
-               </font>
+            <Label fx:id="description" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="declarer" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
             </Label>
          </children>
       </VBox>
-   </left>
-   <right>
-      <VBox alignment="CENTER" prefHeight="78.0" prefWidth="138.0" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </BorderPane.margin>
-         <children>
-            <Label fx:id="category" alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="35.0" prefWidth="136.0" text="Category">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Rectangle fx:id="emergency" arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="26.0" stroke="BLACK" strokeType="INSIDE" width="29.0" />
-         </children>
-      </VBox>
-   </right>
-</BorderPane>
+   </children>
+</VBox>

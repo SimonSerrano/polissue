@@ -1,1 +1,1 @@
-[{"date":"2018-02-16","declarer":{"name":"test"},"description":"test\t","emergency":"LOW","title":"test","category":"OTHER","likes":3}]
+[{"date":"2018-02-16","declarer":{"name":"test"},"description":"test\t","emergency":"LOW","title":"test","category":"OTHER","likes":9},{"date":"2018-02-22","declarer":{"name":"testeur"},"description":"Description de l'incident testé","emergency":"CRITICAL","title":"test2","category":"STUFF","likes":4}]
