@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="polytech.unice.fr.si3.ihm.controller.MainViewController">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="polytech.unice.fr.si3.ihm.controller.MainViewController">
    <center>
       <HBox>
          <children>
@@ -58,7 +58,7 @@
                                     <Insets />
                                  </HBox.margin>
                               </JFXButton>
-                              <JFXButton fx:id="EmergencyButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#emergencyButtonClicked" prefHeight="35.0" prefWidth="98.0" style="-fx-border-style: solid; -fx-border-color: grey;" text="Emergency" HBox.hgrow="ALWAYS">
+                              <JFXButton fx:id="EmergencyButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#emergencyButtonClicked" prefHeight="35.0" prefWidth="98.0" style="-fx-border-style: solid; -fx-border-color: grey;" text="Urgence" HBox.hgrow="ALWAYS">
                                  <effect>
                                     <DropShadow />
                                  </effect>
