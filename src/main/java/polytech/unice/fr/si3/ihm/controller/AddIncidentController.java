@@ -55,7 +55,7 @@ public class AddIncidentController{
     private JFXTextArea incidentDescription;
 
     @FXML
-    private JFXTextArea incidentLocation;
+    private JFXTextField incidentLocation;
 
     @FXML
     private JFXButton incidentCategoryOne;

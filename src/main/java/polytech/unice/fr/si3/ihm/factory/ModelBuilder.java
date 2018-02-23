@@ -48,6 +48,7 @@ public class ModelBuilder {
                 LocalDate declarationDate = LocalDate.parse(jsonobject.getString("date"));
                 int likes = jsonobject.getInt("likes");
                 String emergency= jsonobject.getString("emergency");
+
                 String location = jsonobject.getString("location");
                 Incident incidentCreated = new Incident(
                         title,

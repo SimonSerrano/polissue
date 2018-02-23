@@ -45,12 +45,12 @@
                              <Font name="System Italic" size="10.0"/>
                          </font>
                      </Label>
-                     <Label fx:id="date1" text=" - ">
+                     <Label text=" - ">
                          <font>
                              <Font name="System Italic" size="10.0"/>
                          </font>
                      </Label>
-                     <Label fx:id="location" text="lieux">
+                     <Label fx:id="incidentLocation" text="lieux">
                          <font>
                              <Font name="System Italic" size="10.0"/>
                          </font>

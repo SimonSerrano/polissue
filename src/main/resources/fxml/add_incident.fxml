@@ -52,19 +52,17 @@
                </children>
             </VBox>
             <VBox alignment="CENTER">
-               <children>
-                  <JFXTextField fx:id="incidentLocation" alignment="CENTER" promptText="Personne déclarant l'incident"
-                                text="Lieu de l'incident"/>
-                  <Label fx:id="incidentLocationError" text="Incident Invalide" textFill="RED" visible="false"
-                         VBox.vgrow="ALWAYS">
-                     <font>
-                        <Font name="System Bold" size="12.0"/>
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
-                     </VBox.margin>
-                  </Label>
-               </children>
+               <JFXTextField fx:id="incidentLocation" alignment="CENTER" promptText="Lieu de l'incident"
+                             text="Lieu de l'incident"/>
+               <Label fx:id="incidentLocationError" text="Incident Invalide" textFill="RED" visible="false"
+                      VBox.vgrow="ALWAYS">
+                  <font>
+                     <Font name="System Bold" size="12.0"/>
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </VBox.margin>
+               </Label>
             </VBox>
             <VBox alignment="CENTER" prefHeight="79.0" prefWidth="240.0" VBox.vgrow="ALWAYS">
                <children>

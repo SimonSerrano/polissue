@@ -8,8 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import polytech.unice.fr.si3.ihm.model.Emergency;
@@ -51,7 +51,7 @@ public class IncidentCellController {
     @FXML
     private Label date;
     @FXML
-    private Label location;
+    private Label incidentLocation;
 
 
 
@@ -126,7 +126,7 @@ public class IncidentCellController {
         category.textProperty().bind(new SimpleStringProperty(item.getCategory().getFrenchString()));
         date.textProperty().bind(new SimpleStringProperty("déclaré le " + item.getDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))));
         likes.textProperty().bind(new SimpleStringProperty(String.valueOf(item.getLikes())));
-        location.textProperty().bind(new SimpleStringProperty(item.getLocation()));
+        incidentLocation.textProperty().bind(new SimpleStringProperty(item.getLocation()));
         emergency.setFill(getColorFromEmergency(item.getEmergency()));
     }
 
