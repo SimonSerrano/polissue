@@ -60,6 +60,7 @@ public class ModelBuilder {
                         getEmergency(emergency),
                         location
                 );
+                incidentList.add(incidentCreated);
             }
 
         } catch (IOException e) {
