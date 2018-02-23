@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 import javafx.beans.property.SimpleListProperty;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -106,7 +107,7 @@ public class MainViewController {
         String recherche=searchTextField.getText();
         if (!recherche.isEmpty()){
             for(Incident incid: Main.INCIDENTS){
-                if(incid.getTitle().equals(recherche) || incid.getDeclarer().equals(recherche))
+                if(incid.getTitle().equals(recherche) || incid.getDeclarer().getName().equals(recherche))
                     sortText(recherche);
             }
         }
@@ -283,37 +284,6 @@ public class MainViewController {
 
     }
 
-
-
-    @FXML
-    void toDetails(MouseEvent event){
-        logger.info("Clicked : " + incidentsView.getSelectionModel().getSelectedItem());
-        logger.debug("Loading FXML for main view from: {}", Constant.INCIDENT_DETAILS_FXML);
-        if (incidentsView.getSelectionModel().getSelectedItem() != null) {
-            try {
-                FXMLLoader loader = new FXMLLoader();
-                Stage stage = new Stage();
-                Parent rootNode = loader.load(getClass().getResourceAsStream(Constant.INCIDENT_DETAILS_FXML));
-                stage.setMinHeight(400);
-                stage.setMinWidth(700);
-
-                logger.debug("Showing JFX scene");
-                Scene scene = new Scene(rootNode, 1280, 720);
-                scene.getStylesheets().add("/styles/main.css");
-                stage.setTitle("Polissue");
-                stage.setScene(scene);
-                setUserAgentStylesheet(STYLESHEET_MODENA);
-                IncidentDetailsController controller = loader.getController();
-
-                controller.initContent(incidentsView.getSelectionModel().getSelectedItem());
-
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-    }
 
     private void resetFilters(){
         LikesButton.getStyleClass().removeAll("filter-selected");

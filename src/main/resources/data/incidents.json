@@ -1,14 +1,1 @@
-[
-  {
-    "date": "2018-02-23",
-    "declarer": {
-      "name": "aze"
-    },
-    "description": "aeaze\t",
-    "emergency": "MEDIUM",
-    "location": "aze",
-    "title": "aze",
-    "category": "HEALTH",
-    "likes": 1
-  }
-]
+[{"date":"2018-02-16","declarer":{"name":"test"},"description":"test\t","emergency":"LOW","title":"test","category":"OTHER","likes":9},{"date":"2018-02-22","declarer":{"name":"testeur"},"description":"Description de l'incident testé","emergency":"CRITICAL","title":"test2","category":"STUFF","likes":4}]
