@@ -303,12 +303,7 @@ public class MainViewController {
 
     public void initContent(){
         incidentsView.setCellFactory(
-                new Callback<ListView<Incident>, ListCell<Incident>>() {
-                    @Override
-                    public ListCell<Incident> call(ListView<Incident> param) {
-                        return new IncidentCell();
-                    }
-                }
+                param -> new IncidentCell()
         );
         incidentsView.itemsProperty().bind(new SimpleListProperty<>(Main.INCIDENTS));
         for (Category cat : Category.values()){
