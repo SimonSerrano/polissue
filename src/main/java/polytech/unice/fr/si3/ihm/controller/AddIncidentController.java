@@ -251,7 +251,7 @@ public class AddIncidentController{
         logger.debug("category five clicked");
         resetCategories();
         incidentCategoryFive.getStyleClass().add("category-selected");
-        selectedCategory = Category.FIVE;
+        selectedCategory = Category.METEO;
     }
 
     @FXML

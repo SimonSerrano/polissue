@@ -9,7 +9,7 @@ public enum Category {
     HEALTH(Constant.HEALTH_CATEGORY, "SANTÉ"),
     LOGISTIC(Constant.LOGISTIC_CATEGORY, "LOGISTIQUE"),
     STUFF(Constant.STUFF_CATEGORY, "MATÉRIEL"),
-    FIVE(Constant.FIVE_CATEGORY, "CINQ"),
+    METEO(Constant.METEO_CATEGORY, "METEO"),
     OTHER(Constant.OTHER_CATEGORY, "AUTRE");
 
     private String categoryFilePath;
