@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
 <HBox alignment="CENTER" prefHeight="616.0" prefWidth="514.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="polytech.unice.fr.si3.ihm.controller.AddIncidentController">
    <children>
       <FlowPane orientation="VERTICAL" prefHeight="576.0" prefWidth="19.0" rowValignment="TOP" HBox.hgrow="ALWAYS">
@@ -52,15 +61,13 @@
                </children>
             </VBox>
             <VBox alignment="CENTER">
-               <JFXTextField fx:id="incidentLocation" alignment="CENTER" promptText="Lieu de l'incident"
-                             text="Lieu de l'incident"/>
-               <Label fx:id="incidentLocationError" text="Incident Invalide" textFill="RED" visible="false"
-                      VBox.vgrow="ALWAYS">
+               <JFXTextField fx:id="incidentLocation" alignment="CENTER" promptText="Lieu de l'incident" text="Lieu de l'incident" />
+               <Label fx:id="incidentLocationError" text="Incident Invalide" textFill="RED" visible="false" VBox.vgrow="ALWAYS">
                   <font>
-                     <Font name="System Bold" size="12.0"/>
+                     <Font name="System Bold" size="12.0" />
                   </font>
                   <VBox.margin>
-                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                   </VBox.margin>
                </Label>
             </VBox>
@@ -116,7 +123,7 @@
                         <JFXButton fx:id="incidentCategoryTwo" buttonType="RAISED" onMouseClicked="#categoryTwoClicked" styleClass="category-button" text="Comportement" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                         <JFXButton fx:id="incidentCategoryThree" buttonType="RAISED" onMouseClicked="#categoryThreeClicked" styleClass="category-button" text="Logistique" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                         <JFXButton fx:id="incidentCategoryFour" buttonType="RAISED" onMouseClicked="#categoryFourClicked" styleClass="category-button" text="Matériel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                        <JFXButton fx:id="incidentCategoryFive" buttonType="RAISED" onMouseClicked="#categoryFiveClicked" styleClass="category-button" text="Catégorie 5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                        <JFXButton fx:id="incidentCategoryFive" buttonType="RAISED" onMouseClicked="#categoryFiveClicked" styleClass="category-button" text="Météo" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                         <JFXButton fx:id="incidentCategorySix" buttonType="RAISED" onMouseClicked="#categorySixClicked" styleClass="category-button" text="Autre" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                      </children>
                   </GridPane>
