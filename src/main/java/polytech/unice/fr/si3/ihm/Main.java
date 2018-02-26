@@ -11,7 +11,6 @@ import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import polytech.unice.fr.si3.ihm.controller.MainViewController;
-import polytech.unice.fr.si3.ihm.factory.IncidentJSONFactory;
 import polytech.unice.fr.si3.ihm.factory.ModelBuilder;
 import polytech.unice.fr.si3.ihm.model.Incident;
 import polytech.unice.fr.si3.ihm.util.Constant;

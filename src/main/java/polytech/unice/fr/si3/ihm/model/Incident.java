@@ -22,7 +22,7 @@ public class Incident {
      * @param title the title of the incident
      * @param description the description of the incident
      * @param declarer the declarer of the incident
-     * @param likes
+     * @param likes number of likes of the incident
      * @param category the category of the incident
      * @param date the date of declaration of the incident
      * @param emergency  the type of emergency of the incident ( Very/Less Urgent)
