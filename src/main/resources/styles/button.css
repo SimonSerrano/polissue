@@ -50,3 +50,21 @@
 .downvote_button:hover{
     -fx-background-color: linear-gradient(#F44336, #B71C1C);
 }
+
+
+.filter-button{
+    -fx-border-style: solid;
+    -fx-border-color: grey;
+}
+
+.filter-button:hover {
+    -fx-border-style: solid;
+    -fx-border-color: grey;
+    -fx-background-color: #2196F3;
+}
+
+.filter-button-selected{
+    -fx-border-style: solid;
+    -fx-border-color: grey;
+    -fx-background-color: #2196F3;
+}

@@ -1,88 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="polytech.unice.fr.si3.ihm.controller.MainViewController">
-   <children>
-      <VBox alignment="CENTER" prefHeight="407.0" prefWidth="613.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="polytech.unice.fr.si3.ihm.controller.MainViewController">
+   <center>
+      <HBox>
          <children>
-            <AnchorPane prefHeight="31.0" prefWidth="590.0" VBox.vgrow="ALWAYS">
+            <VBox HBox.hgrow="ALWAYS">
                <children>
-                  <HBox alignment="CENTER" prefHeight="80.0" prefWidth="590.0" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox VBox.vgrow="ALWAYS">
                      <children>
-                        <AnchorPane prefHeight="17.0" prefWidth="189.0" />
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                        <HBox alignment="CENTER" prefHeight="70.0" prefWidth="601.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="39.0" prefWidth="196.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <JFXTextField alignment="CENTER" prefHeight="25.0" prefWidth="205.0" />
-                                    <JFXButton fx:id="searchButton" buttonType="RAISED" onMouseReleased="#searchIncident" style="-fx-border-style: solid; -fx-border-color: grey;" text="Rechercher" HBox.hgrow="ALWAYS">
-                                       <HBox.margin>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </HBox.margin>
-                                       <effect>
-                                          <DropShadow />
-                                       </effect>
-                                    </JFXButton>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="28.0" prefWidth="197.0" />
-                     </children>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                  </HBox>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </VBox.margin>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </AnchorPane>
-            <AnchorPane prefHeight="312.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <VBox prefHeight="318.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <AnchorPane prefHeight="35.0" prefWidth="600.0">
-                           <children>
-                              <JFXButton fx:id="addIncidentButton" alignment="CENTER" buttonType="RAISED" onMouseReleased="#addIncident" style="-fx-border-style: solid; -fx-border-color: grey;" text="Ajouter un incident" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <JFXTextField fx:id="searchTextField" alignment="CENTER" maxWidth="1000.0" prefHeight="31.0" prefWidth="150.0">
+                                 <HBox.margin>
+                                    <Insets right="15.0" />
+                                 </HBox.margin>
+                              </JFXTextField>
+                              <JFXButton fx:id="searchButton" alignment="CENTER" buttonType="RAISED" onMouseReleased="#searchIncident" prefHeight="33.0" prefWidth="133.0" style="-fx-border-style: solid; -fx-border-color: #2196F3; -fx-border-radius: 50; -fx-background-radius: 50;" stylesheets="@../styles/button.css" text="Rechercher" HBox.hgrow="ALWAYS">
                                  <effect>
                                     <DropShadow />
                                  </effect>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <styleClass>
+                                    <String fx:value="button-raised" />
+                                    <String fx:value="regular-button" />
+                                 </styleClass>
                               </JFXButton>
-                           </children></AnchorPane>
-                        <AnchorPane prefHeight="260.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+                              <JFXComboBox fx:id="categoryButton" promptText="Catégories">
+                                 <HBox.margin>
+                                    <Insets left="50.0" right="15.0" />
+                                 </HBox.margin>
+                              </JFXComboBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="69.0" prefWidth="450.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <JFXListView fx:id="incidentsView" onMouseClicked="#toDetails" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                           </children></AnchorPane>
+                              <Label prefHeight="69.0" prefWidth="88.0" text="Trier :" HBox.hgrow="ALWAYS" />
+                              <JFXButton fx:id="LikesButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#likesButtonClicked" prefHeight="35.0" prefWidth="86.0" styleClass="filter-button" stylesheets="@../styles/button.css" text="Likes" HBox.hgrow="ALWAYS">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="EmergencyButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#emergencyButtonClicked" prefHeight="35.0" prefWidth="98.0" styleClass="filter-button" stylesheets="@../styles/button.css" text="Urgence" HBox.hgrow="ALWAYS">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="DateButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#dateButtonClicked" prefHeight="35.0" prefWidth="86.0" styleClass="filter-button" stylesheets="@../styles/button.css" text="Date" HBox.hgrow="ALWAYS">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="plusButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#plusButtonClicked" prefHeight="25.0" prefWidth="40.0" styleClass="filter-button" stylesheets="@../styles/button.css" text="+" HBox.hgrow="ALWAYS">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <HBox.margin>
+                                    <Insets left="40.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="minusButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#minusButtonClicked" prefHeight="25.0" prefWidth="40.0" styleClass="filter-button" stylesheets="@../styles/button.css" text="-" HBox.hgrow="ALWAYS">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="318.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <JFXButton fx:id="addIncidentButton" alignment="CENTER" buttonType="RAISED" onMouseReleased="#addIncident" style="-fx-border-style: solid; -fx-border-color: #2196F3;" stylesheets="@../styles/button.css" text="Ajouter un incident">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <styleClass>
+                              <String fx:value="button-raised" />
+                              <String fx:value="regular-button" />
+                           </styleClass>
+                        </JFXButton>
+                        <JFXListView fx:id="incidentsView" style="-fx-border-color: #2196F3;" VBox.vgrow="ALWAYS" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </VBox>
                </children>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </AnchorPane>
+            </VBox>
          </children>
-      </VBox>
-   </children>
-   <cursor>
-      <Cursor fx:constant="DEFAULT" />
-   </cursor>
-   <effect>
-      <DropShadow />
-   </effect>
-</AnchorPane>
+      </HBox>
+   </center>
+   <top>
+      <FlowPane prefHeight="0.0" prefWidth="500.0" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <FlowPane prefHeight="457.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <FlowPane prefHeight="457.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <FlowPane prefHeight="6.0" prefWidth="500.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

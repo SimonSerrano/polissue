@@ -119,11 +119,11 @@ public class MainViewController {
         filter = Filters.LIKES;
         if(!Filters.LIKES.isClicked()){
             resetFilters();
-            LikesButton.getStyleClass().add("filter-selected");
+            LikesButton.getStyleClass().add("filter-button-selected");
             Filters.LIKES.setClicked(true);
             resetTypeOfSort();
             plusOrMinus=TypeOfSort.PLUS;
-            plusButton.getStyleClass().add("filter-selected");
+            plusButton.getStyleClass().add("filter-button-selected");
             sortByFilter(plusOrMinus,filter);
 
         }
@@ -141,11 +141,11 @@ public class MainViewController {
         filter = Filters.EMERGENCY;
         if(!Filters.EMERGENCY.isClicked()){
             resetFilters();
-            EmergencyButton.getStyleClass().add("filter-selected");
+            EmergencyButton.getStyleClass().add("filter-button-selected");
             Filters.EMERGENCY.setClicked(true);
             resetTypeOfSort();
             plusOrMinus=TypeOfSort.PLUS;
-            plusButton.getStyleClass().add("filter-selected");
+            plusButton.getStyleClass().add("filter-button-selected");
             sortByFilter(plusOrMinus,filter);
 
         }
@@ -164,11 +164,11 @@ public class MainViewController {
         filter = Filters.DATE;
         if(!Filters.DATE.isClicked()){
             resetFilters();
-            DateButton.getStyleClass().add("filter-selected");
+            DateButton.getStyleClass().add("filter-button-selected");
             Filters.DATE.setClicked(true);
             resetTypeOfSort();
             plusOrMinus=TypeOfSort.PLUS;
-            plusButton.getStyleClass().add("filter-selected");
+            plusButton.getStyleClass().add("filter-button-selected");
             sortByFilter(plusOrMinus,filter);
         }
         else if(Filters.DATE.isClicked()){
@@ -183,7 +183,7 @@ public class MainViewController {
     void minusButtonClicked(MouseEvent event) {
         if(filter.isClicked()){
             resetTypeOfSort();
-            minusButton.getStyleClass().add("filter-selected");
+            minusButton.getStyleClass().add("filter-button-selected");
             plusOrMinus=TypeOfSort.MINUS;
             sortByFilter(plusOrMinus,filter);
 
@@ -194,7 +194,7 @@ public class MainViewController {
     void plusButtonClicked(MouseEvent event) {
         if(filter.isClicked()){
             resetTypeOfSort();
-            plusButton.getStyleClass().add("filter-selected");
+            plusButton.getStyleClass().add("filter-button-selected");
             plusOrMinus=TypeOfSort.PLUS;
             sortByFilter(plusOrMinus,filter);
         }
@@ -286,18 +286,18 @@ public class MainViewController {
 
 
     private void resetFilters(){
-        LikesButton.getStyleClass().removeAll("filter-selected");
+        LikesButton.getStyleClass().removeAll("filter-button-selected");
         Filters.LIKES.setClicked(false);
-        EmergencyButton.getStyleClass().removeAll("filter-selected");
+        EmergencyButton.getStyleClass().removeAll("filter-button-selected");
         Filters.EMERGENCY.setClicked(false);
-        DateButton.getStyleClass().removeAll("filter-selected");
+        DateButton.getStyleClass().removeAll("filter-button-selected");
         Filters.DATE.setClicked(false);
         categoryButton.setValue(Category.CATEGORY.getFrenchString());
     }
 
     private void resetTypeOfSort(){
-        plusButton.getStyleClass().removeAll("filter-selected");
-        minusButton.getStyleClass().removeAll("filter-selected");
+        plusButton.getStyleClass().removeAll("filter-button-selected");
+        minusButton.getStyleClass().removeAll("filter-button-selected");
     }
 
 

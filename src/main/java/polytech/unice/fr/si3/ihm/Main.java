@@ -50,6 +50,7 @@ public class Main extends Application {
         logger.debug("Showing JFX scene");
         Scene scene = new Scene(rootNode, 1280, 720);
         scene.getStylesheets().add("/styles/main.css");
+        scene.getStylesheets().add("/styles/button.css");
         primaryStage.setTitle("Polissue");
         primaryStage.setScene(scene);
         setUserAgentStylesheet(STYLESHEET_MODENA);
