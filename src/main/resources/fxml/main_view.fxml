@@ -50,7 +50,7 @@
                         <HBox alignment="CENTER" prefHeight="69.0" prefWidth="450.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Label prefHeight="69.0" prefWidth="88.0" text="Trier :" HBox.hgrow="ALWAYS" />
-                              <JFXButton fx:id="LikesButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#likesButtonClicked" prefHeight="35.0" prefWidth="86.0" styleClass="filter-button" stylesheets="@../styles/button.css" text="Likes" HBox.hgrow="ALWAYS">
+                              <JFXButton fx:id="likesButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#likesButtonClicked" prefHeight="35.0" prefWidth="86.0" styleClass="filter-button" stylesheets="@../styles/button.css" text="Likes" HBox.hgrow="ALWAYS">
                                  <effect>
                                     <DropShadow />
                                  </effect>
@@ -58,7 +58,7 @@
                                     <Insets />
                                  </HBox.margin>
                               </JFXButton>
-                              <JFXButton fx:id="EmergencyButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#emergencyButtonClicked" prefHeight="35.0" prefWidth="98.0" styleClass="filter-button" stylesheets="@../styles/button.css" text="Urgence" HBox.hgrow="ALWAYS">
+                              <JFXButton fx:id="emergencyButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#emergencyButtonClicked" prefHeight="35.0" prefWidth="98.0" styleClass="filter-button" stylesheets="@../styles/button.css" text="Urgence" HBox.hgrow="ALWAYS">
                                  <effect>
                                     <DropShadow />
                                  </effect>
@@ -66,7 +66,7 @@
                                     <Insets left="25.0" />
                                  </HBox.margin>
                               </JFXButton>
-                              <JFXButton fx:id="DateButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#dateButtonClicked" prefHeight="35.0" prefWidth="86.0" styleClass="filter-button" stylesheets="@../styles/button.css" text="Date" HBox.hgrow="ALWAYS">
+                              <JFXButton fx:id="dateButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#dateButtonClicked" prefHeight="35.0" prefWidth="86.0" styleClass="filter-button" stylesheets="@../styles/button.css" text="Date" HBox.hgrow="ALWAYS">
                                  <effect>
                                     <DropShadow />
                                  </effect>

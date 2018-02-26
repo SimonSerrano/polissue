@@ -20,7 +20,6 @@ import polytech.unice.fr.si3.ihm.util.JsonWriter;
 public class Main extends Application {
 
     private Logger logger = LogManager.getLogger();
-    private MainViewController controller;
     public static ObservableList<Incident> INCIDENTS;
 
     public static void main(String[] args) {
@@ -55,7 +54,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         setUserAgentStylesheet(STYLESHEET_MODENA);
 
-        controller = loader.getController();
+        MainViewController controller = loader.getController();
         controller.setStage(primaryStage);
         controller.setScene(scene);
         controller.initContent();
@@ -66,9 +65,7 @@ public class Main extends Application {
     @Override
     public void stop(){
         JsonWriter jsonWriter=new JsonWriter();
-        IncidentJSONFactory incidentJSONFactory=new IncidentJSONFactory();
-
         jsonWriter.write(INCIDENTS,"src/main/resources/data/INCIDENTS.json");
-        System.out.println("Stage is closing");
+        logger.info("Stage is closing");
     }
 }

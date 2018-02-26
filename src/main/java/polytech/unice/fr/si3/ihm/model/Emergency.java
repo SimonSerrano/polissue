@@ -6,7 +6,7 @@ public enum Emergency {
     MEDIUM(1),
     LOW(0);
 
-    public int index;
+    private int index;
 
     Emergency(int index){
         this.index=index;

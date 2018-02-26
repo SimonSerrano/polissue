@@ -2,14 +2,11 @@ package polytech.unice.fr.si3.ihm.util;
 
 import javafx.collections.ObservableList;
 import org.json.JSONArray;
-import org.json.JSONObject;
 import polytech.unice.fr.si3.ihm.factory.IncidentJSONFactory;
 import polytech.unice.fr.si3.ihm.model.Incident;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.logging.Logger;
 
 /**

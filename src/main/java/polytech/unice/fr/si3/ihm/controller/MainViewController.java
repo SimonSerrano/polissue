@@ -5,16 +5,12 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 import javafx.beans.property.SimpleListProperty;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import polytech.unice.fr.si3.ihm.Main;
@@ -26,7 +22,6 @@ import polytech.unice.fr.si3.ihm.util.Constant;
 import polytech.unice.fr.si3.ihm.view.IncidentCell;
 
 import java.io.IOException;
-import java.util.Date;
 
 import static javafx.application.Application.STYLESHEET_MODENA;
 import static javafx.application.Application.setUserAgentStylesheet;
@@ -38,6 +33,10 @@ public class MainViewController {
     private Logger logger = LogManager.getLogger();
     private Filters filter;
     private TypeOfSort plusOrMinus;
+
+
+    //Style Class used
+    private final String filterSelectedStyleClass = "filter-button-selected";
 
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -54,13 +53,13 @@ public class MainViewController {
     private JFXComboBox<String> categoryButton;
 
     @FXML
-    private JFXButton LikesButton;
+    private JFXButton likesButton;
 
     @FXML
-    private JFXButton EmergencyButton;
+    private JFXButton emergencyButton;
 
     @FXML
-    private JFXButton DateButton;
+    private JFXButton dateButton;
 
     @FXML
     private JFXButton plusButton;
@@ -97,7 +96,7 @@ public class MainViewController {
             controller.initContent();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.warn(e.toString());
         }
 
     }
@@ -119,11 +118,11 @@ public class MainViewController {
         filter = Filters.LIKES;
         if(!Filters.LIKES.isClicked()){
             resetFilters();
-            LikesButton.getStyleClass().add("filter-button-selected");
+            likesButton.getStyleClass().add(filterSelectedStyleClass);
             Filters.LIKES.setClicked(true);
             resetTypeOfSort();
             plusOrMinus=TypeOfSort.PLUS;
-            plusButton.getStyleClass().add("filter-button-selected");
+            plusButton.getStyleClass().add(filterSelectedStyleClass);
             sortByFilter(plusOrMinus,filter);
 
         }
@@ -141,11 +140,11 @@ public class MainViewController {
         filter = Filters.EMERGENCY;
         if(!Filters.EMERGENCY.isClicked()){
             resetFilters();
-            EmergencyButton.getStyleClass().add("filter-button-selected");
+            emergencyButton.getStyleClass().add(filterSelectedStyleClass);
             Filters.EMERGENCY.setClicked(true);
             resetTypeOfSort();
             plusOrMinus=TypeOfSort.PLUS;
-            plusButton.getStyleClass().add("filter-button-selected");
+            plusButton.getStyleClass().add(filterSelectedStyleClass);
             sortByFilter(plusOrMinus,filter);
 
         }
@@ -164,11 +163,11 @@ public class MainViewController {
         filter = Filters.DATE;
         if(!Filters.DATE.isClicked()){
             resetFilters();
-            DateButton.getStyleClass().add("filter-button-selected");
+            dateButton.getStyleClass().add(filterSelectedStyleClass);
             Filters.DATE.setClicked(true);
             resetTypeOfSort();
             plusOrMinus=TypeOfSort.PLUS;
-            plusButton.getStyleClass().add("filter-button-selected");
+            plusButton.getStyleClass().add(filterSelectedStyleClass);
             sortByFilter(plusOrMinus,filter);
         }
         else if(Filters.DATE.isClicked()){
@@ -183,7 +182,7 @@ public class MainViewController {
     void minusButtonClicked(MouseEvent event) {
         if(filter.isClicked()){
             resetTypeOfSort();
-            minusButton.getStyleClass().add("filter-button-selected");
+            minusButton.getStyleClass().add(filterSelectedStyleClass);
             plusOrMinus=TypeOfSort.MINUS;
             sortByFilter(plusOrMinus,filter);
 
@@ -194,23 +193,23 @@ public class MainViewController {
     void plusButtonClicked(MouseEvent event) {
         if(filter.isClicked()){
             resetTypeOfSort();
-            plusButton.getStyleClass().add("filter-button-selected");
+            plusButton.getStyleClass().add(filterSelectedStyleClass);
             plusOrMinus=TypeOfSort.PLUS;
             sortByFilter(plusOrMinus,filter);
         }
 
     }
 
-    public void sortByFilter(TypeOfSort sort,Filters filters){
+    private void sortByFilter(TypeOfSort sort, Filters filters){
         int first=0;
         int second=0;
         switch (sort){
             case MINUS:
                 first=1;
-                second=-1;
+                second-=1;
                 break;
             case PLUS:
-                first=-1;
+                first-=1;
                 second=1;
                 break;
         }
@@ -256,7 +255,7 @@ public class MainViewController {
 
     }
 
-    public void sortCategories(String cat){
+    private void sortCategories(String cat){
         Main.INCIDENTS.sort((p1, p2) -> {
             if(p1.getCategory().getFrenchString().equals(cat))
                 return -1;
@@ -269,8 +268,7 @@ public class MainViewController {
         resetTypeOfSort();
     }
 
-    public void sortText(String txt){
-        //TODO maybe improve it ?
+    private void sortText(String txt){
         //POUR LE MOMENT SEUL LE TITRE EXACT EST TRIE, ON PEUT TOUT CAST EN MINUSCULE POUR EVITER LES PB
         // OU ENCORE CHERCHER EN FONCTION DU NOM DU DECLARANT
         Main.INCIDENTS.sort((p1, p2) -> {
@@ -286,21 +284,24 @@ public class MainViewController {
 
 
     private void resetFilters(){
-        LikesButton.getStyleClass().removeAll("filter-button-selected");
+        likesButton.getStyleClass().removeAll(filterSelectedStyleClass);
         Filters.LIKES.setClicked(false);
-        EmergencyButton.getStyleClass().removeAll("filter-button-selected");
+        emergencyButton.getStyleClass().removeAll(filterSelectedStyleClass);
         Filters.EMERGENCY.setClicked(false);
-        DateButton.getStyleClass().removeAll("filter-button-selected");
+        dateButton.getStyleClass().removeAll(filterSelectedStyleClass);
         Filters.DATE.setClicked(false);
         categoryButton.setValue(Category.CATEGORY.getFrenchString());
     }
 
     private void resetTypeOfSort(){
-        plusButton.getStyleClass().removeAll("filter-button-selected");
-        minusButton.getStyleClass().removeAll("filter-button-selected");
+        plusButton.getStyleClass().removeAll(filterSelectedStyleClass);
+        minusButton.getStyleClass().removeAll(filterSelectedStyleClass);
     }
 
 
+    /**
+     * Initializes the content of the view
+     */
     public void initContent(){
         incidentsView.setCellFactory(
                 param -> new IncidentCell()

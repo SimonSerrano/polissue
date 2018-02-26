@@ -13,10 +13,8 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.transform.Translate;
 import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -25,7 +23,6 @@ import polytech.unice.fr.si3.ihm.model.Incident;
 
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
-import java.util.concurrent.TimeUnit;
 
 import static polytech.unice.fr.si3.ihm.util.Constant.INCIDENT_CELL_FXML;
 
@@ -99,9 +96,11 @@ public class IncidentCellController {
             });
             view = loader.load();
         } catch (IOException e) {
-            e.printStackTrace();
+           logger.warn(e.toString());
         }
     }
+
+
 
 
 
