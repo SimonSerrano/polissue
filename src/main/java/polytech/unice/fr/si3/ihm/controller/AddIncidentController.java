@@ -37,7 +37,7 @@ public class AddIncidentController{
     private Incident incident;
 
     //Used style classes
-    private final String categorySelectedStyleClass = "category-selected";
+    private static final String CATEGORY_SELECTED_STYLE_CLASS = "category-selected";
 
 
 
@@ -219,7 +219,7 @@ public class AddIncidentController{
     void categoryOneClicked(MouseEvent event) {
         logger.debug("category one clicked");
         resetCategories();
-        incidentCategoryOne.getStyleClass().add(categorySelectedStyleClass);
+        incidentCategoryOne.getStyleClass().add(CATEGORY_SELECTED_STYLE_CLASS);
         selectedCategory = Category.HEALTH;
     }
 
@@ -228,7 +228,7 @@ public class AddIncidentController{
     void categoryTwoClicked(MouseEvent event) {
         logger.debug("category two clicked");
         resetCategories();
-        incidentCategoryTwo.getStyleClass().add(categorySelectedStyleClass);
+        incidentCategoryTwo.getStyleClass().add(CATEGORY_SELECTED_STYLE_CLASS);
         selectedCategory = Category.BEHAVIOR;
     }
 
@@ -236,7 +236,7 @@ public class AddIncidentController{
     void categoryThreeClicked(MouseEvent event) {
         logger.debug("category three clicked");
         resetCategories();
-        incidentCategoryThree.getStyleClass().add(categorySelectedStyleClass);
+        incidentCategoryThree.getStyleClass().add(CATEGORY_SELECTED_STYLE_CLASS);
         selectedCategory = Category.LOGISTIC;
     }
 
@@ -244,7 +244,7 @@ public class AddIncidentController{
     void categoryFourClicked(MouseEvent event) {
         logger.debug("category four clicked");
         resetCategories();
-        incidentCategoryFour.getStyleClass().add(categorySelectedStyleClass);
+        incidentCategoryFour.getStyleClass().add(CATEGORY_SELECTED_STYLE_CLASS);
         selectedCategory = Category.STUFF;
     }
 
@@ -252,7 +252,7 @@ public class AddIncidentController{
     void categoryFiveClicked(MouseEvent event) {
         logger.debug("category five clicked");
         resetCategories();
-        incidentCategoryFive.getStyleClass().add(categorySelectedStyleClass);
+        incidentCategoryFive.getStyleClass().add(CATEGORY_SELECTED_STYLE_CLASS);
         selectedCategory = Category.METEO;
     }
 
@@ -260,7 +260,7 @@ public class AddIncidentController{
     void categorySixClicked(MouseEvent event) {
         logger.debug("category six clicked");
         resetCategories();
-        incidentCategorySix.getStyleClass().add(categorySelectedStyleClass);
+        incidentCategorySix.getStyleClass().add(CATEGORY_SELECTED_STYLE_CLASS);
         selectedCategory = Category.OTHER;
     }
 
@@ -273,12 +273,12 @@ public class AddIncidentController{
      * Resets the selection of the categories
      */
     private void resetCategories(){
-        incidentCategoryOne.getStyleClass().removeAll(categorySelectedStyleClass);
-        incidentCategoryTwo.getStyleClass().removeAll(categorySelectedStyleClass);
-        incidentCategoryThree.getStyleClass().removeAll(categorySelectedStyleClass);
-        incidentCategoryFour.getStyleClass().removeAll(categorySelectedStyleClass);
-        incidentCategoryFive.getStyleClass().removeAll(categorySelectedStyleClass);
-        incidentCategorySix.getStyleClass().removeAll(categorySelectedStyleClass);
+        incidentCategoryOne.getStyleClass().removeAll(CATEGORY_SELECTED_STYLE_CLASS);
+        incidentCategoryTwo.getStyleClass().removeAll(CATEGORY_SELECTED_STYLE_CLASS);
+        incidentCategoryThree.getStyleClass().removeAll(CATEGORY_SELECTED_STYLE_CLASS);
+        incidentCategoryFour.getStyleClass().removeAll(CATEGORY_SELECTED_STYLE_CLASS);
+        incidentCategoryFive.getStyleClass().removeAll(CATEGORY_SELECTED_STYLE_CLASS);
+        incidentCategorySix.getStyleClass().removeAll(CATEGORY_SELECTED_STYLE_CLASS);
     }
 
 

@@ -36,7 +36,7 @@ public class MainViewController {
 
 
     //Style Class used
-    private final String filterSelectedStyleClass = "filter-button-selected";
+    private static final String FILTER_SELECTED_STYLE_CLASS = "filter-button-selected";
 
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -118,11 +118,11 @@ public class MainViewController {
         filter = Filters.LIKES;
         if(!Filters.LIKES.isClicked()){
             resetFilters();
-            likesButton.getStyleClass().add(filterSelectedStyleClass);
+            likesButton.getStyleClass().add(FILTER_SELECTED_STYLE_CLASS);
             Filters.LIKES.setClicked(true);
             resetTypeOfSort();
             plusOrMinus=TypeOfSort.PLUS;
-            plusButton.getStyleClass().add(filterSelectedStyleClass);
+            plusButton.getStyleClass().add(FILTER_SELECTED_STYLE_CLASS);
             sortByFilter(plusOrMinus,filter);
 
         }
@@ -140,11 +140,11 @@ public class MainViewController {
         filter = Filters.EMERGENCY;
         if(!Filters.EMERGENCY.isClicked()){
             resetFilters();
-            emergencyButton.getStyleClass().add(filterSelectedStyleClass);
+            emergencyButton.getStyleClass().add(FILTER_SELECTED_STYLE_CLASS);
             Filters.EMERGENCY.setClicked(true);
             resetTypeOfSort();
             plusOrMinus=TypeOfSort.PLUS;
-            plusButton.getStyleClass().add(filterSelectedStyleClass);
+            plusButton.getStyleClass().add(FILTER_SELECTED_STYLE_CLASS);
             sortByFilter(plusOrMinus,filter);
 
         }
@@ -163,11 +163,11 @@ public class MainViewController {
         filter = Filters.DATE;
         if(!Filters.DATE.isClicked()){
             resetFilters();
-            dateButton.getStyleClass().add(filterSelectedStyleClass);
+            dateButton.getStyleClass().add(FILTER_SELECTED_STYLE_CLASS);
             Filters.DATE.setClicked(true);
             resetTypeOfSort();
             plusOrMinus=TypeOfSort.PLUS;
-            plusButton.getStyleClass().add(filterSelectedStyleClass);
+            plusButton.getStyleClass().add(FILTER_SELECTED_STYLE_CLASS);
             sortByFilter(plusOrMinus,filter);
         }
         else if(Filters.DATE.isClicked()){
@@ -182,7 +182,7 @@ public class MainViewController {
     void minusButtonClicked(MouseEvent event) {
         if(filter.isClicked()){
             resetTypeOfSort();
-            minusButton.getStyleClass().add(filterSelectedStyleClass);
+            minusButton.getStyleClass().add(FILTER_SELECTED_STYLE_CLASS);
             plusOrMinus=TypeOfSort.MINUS;
             sortByFilter(plusOrMinus,filter);
 
@@ -193,7 +193,7 @@ public class MainViewController {
     void plusButtonClicked(MouseEvent event) {
         if(filter.isClicked()){
             resetTypeOfSort();
-            plusButton.getStyleClass().add(filterSelectedStyleClass);
+            plusButton.getStyleClass().add(FILTER_SELECTED_STYLE_CLASS);
             plusOrMinus=TypeOfSort.PLUS;
             sortByFilter(plusOrMinus,filter);
         }
@@ -284,18 +284,18 @@ public class MainViewController {
 
 
     private void resetFilters(){
-        likesButton.getStyleClass().removeAll(filterSelectedStyleClass);
+        likesButton.getStyleClass().removeAll(FILTER_SELECTED_STYLE_CLASS);
         Filters.LIKES.setClicked(false);
-        emergencyButton.getStyleClass().removeAll(filterSelectedStyleClass);
+        emergencyButton.getStyleClass().removeAll(FILTER_SELECTED_STYLE_CLASS);
         Filters.EMERGENCY.setClicked(false);
-        dateButton.getStyleClass().removeAll(filterSelectedStyleClass);
+        dateButton.getStyleClass().removeAll(FILTER_SELECTED_STYLE_CLASS);
         Filters.DATE.setClicked(false);
         categoryButton.setValue(Category.CATEGORY.getFrenchString());
     }
 
     private void resetTypeOfSort(){
-        plusButton.getStyleClass().removeAll(filterSelectedStyleClass);
-        minusButton.getStyleClass().removeAll(filterSelectedStyleClass);
+        plusButton.getStyleClass().removeAll(FILTER_SELECTED_STYLE_CLASS);
+        minusButton.getStyleClass().removeAll(FILTER_SELECTED_STYLE_CLASS);
     }
 
 
