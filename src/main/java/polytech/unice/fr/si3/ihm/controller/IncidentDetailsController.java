@@ -21,8 +21,8 @@ public class IncidentDetailsController {
 
 
     public void initContent(Incident selectedItem) {
-        incidentTitle.textProperty().bind(new SimpleStringProperty(selectedItem.getTitle()));
-        incidentDescription.textProperty().bind(new SimpleStringProperty(selectedItem.getDescription()));
-        incidentDeclarer.textProperty().bind(new SimpleStringProperty(selectedItem.getDeclarer().getName()));
+        incidentTitle.textProperty().bind(selectedItem.getTitle());
+        incidentDescription.textProperty().bind(selectedItem.getDescription());
+        incidentDeclarer.textProperty().bind(selectedItem.getDeclarer().getName());
     }
 }

@@ -2,7 +2,11 @@
   {
     "title": "test",
     "description": "encoreTest",
-    "declarer": "toujoursTest",
-    "location": "testLand"
+    "declarer": {"name":"toujoursTest"},
+    "location": "testLand",
+    "category": "OTHER",
+    "date": "2018-03-09",
+    "likes": 0,
+    "emergency": "LOW"
   }
 ]

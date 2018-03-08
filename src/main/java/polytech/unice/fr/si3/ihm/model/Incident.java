@@ -1,6 +1,10 @@
 package polytech.unice.fr.si3.ihm.model;
 
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import org.json.JSONObject;
+
 import java.time.LocalDate;
 
 /**
@@ -8,14 +12,14 @@ import java.time.LocalDate;
  */
 public class Incident {
 
-    private String title;
-    private String description;
+    private StringProperty title;
+    private StringProperty description;
     private User declarer;
     private int likes;
     private Category category;
     private LocalDate date;
     private Emergency emergency;
-    private String location;
+    private StringProperty location;
 
     /**
      * Constructor for an incident
@@ -29,21 +33,21 @@ public class Incident {
      * @param location the issue location
      */
     public Incident(String title, String description, User declarer, int likes, Category category, LocalDate date, Emergency emergency, String location) {
-        this.title = title;
-        this.description = description;
+        this.title = new SimpleStringProperty(title);
+        this.description = new SimpleStringProperty(description);
         this.declarer= declarer;
         this.likes = likes;
         this.category = category;
         this.date = date;
         this.emergency=emergency;
-        this.location = location;
+        this.location = new SimpleStringProperty(location);
     }
 
     /**
      * Getter for the incident's title
      * @return the title
      */
-    public String getTitle() {
+    public StringProperty getTitle() {
         return title;
     }
 
@@ -51,7 +55,7 @@ public class Incident {
      * Getter for the incident's description
      * @return the description
      */
-    public String getDescription() {
+    public StringProperty getDescription() {
         return description;
     }
 
@@ -91,7 +95,21 @@ public class Incident {
         likes--;
     }
 
-    public String getLocation() {
+    public StringProperty getLocation() {
         return location;
+    }
+
+
+    public JSONObject toJson(){
+        JSONObject object = new JSONObject();
+        object.put("title", title.getValue());
+        object.put("description", description.getValue());
+        object.put("declarer", declarer.toJson());
+        object.put("likes", likes);
+        object.put("category", category);
+        object.put("date", date.toString());
+        object.put("emergency", emergency);
+        object.put("location", location.getValue());
+        return object;
     }
 }

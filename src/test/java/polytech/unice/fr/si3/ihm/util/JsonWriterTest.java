@@ -49,10 +49,16 @@ class JsonWriterTest {
         String content = new String(Files.readAllBytes(Paths.get(filePath)));
         JSONArray array=new JSONArray();
         JSONObject expected = new JSONObject();
+        JSONObject expectedUser = new JSONObject();
         expected.put("title", "title");
         expected.put("description", "description");
-        expected.put("declarer", "declarer");
+        expectedUser.put("name", "declarer");
+        expected.put("declarer", expectedUser);
         expected.put("category", "OTHER");
+        expected.put("date", "2018-03-09");
+        expected.put("emergency", "LOW");
+        expected.put("location", "");
+        expected.put("likes",0);
         array.put(expected);
         JSONArray jsonObject = new JSONArray(content);
 

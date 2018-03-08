@@ -26,9 +26,6 @@ import polytech.unice.fr.si3.ihm.util.Constant;
 
 import java.io.IOException;
 import java.time.LocalDate;
-
-import static javafx.application.Application.STYLESHEET_MODENA;
-import static javafx.application.Application.setUserAgentStylesheet;
 public class AddIncidentController{
 
 
@@ -198,7 +195,6 @@ public class AddIncidentController{
             scene.getStylesheets().add("/styles/main.css");
             stage.setTitle("Polissue - Ajouter un incident");
             stage.setScene(scene);
-            setUserAgentStylesheet(STYLESHEET_MODENA);
 
             MainViewController controller = loader.getController();
             if(incident!=null){

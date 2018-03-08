@@ -2,7 +2,7 @@ package polytech.unice.fr.si3.ihm.util;
 
 import javafx.collections.ObservableList;
 import org.json.JSONArray;
-import polytech.unice.fr.si3.ihm.factory.IncidentJSONFactory;
+import org.json.JSONObject;
 import polytech.unice.fr.si3.ihm.model.Incident;
 
 import java.io.FileWriter;
@@ -28,10 +28,10 @@ public class JsonWriter {
      */
     public void write(ObservableList<Incident> incidents, String dataFilePath){
         try(FileWriter writer = new FileWriter(dataFilePath)){
-            IncidentJSONFactory incidentJSONFactory=new IncidentJSONFactory();
             JSONArray jsonIncidents = new JSONArray();
             for (Incident in : incidents) {
-                jsonIncidents.put(incidentJSONFactory.produce(in));
+                JSONObject jsonObject = in.toJson();
+                jsonIncidents.put(jsonObject);
             }
             writer.append(jsonIncidents.toString());
             writer.flush();

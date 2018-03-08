@@ -24,9 +24,9 @@ class ModelBuilderTest {
     @Test
     void readIncidents() {
         Incident expected = new Incident("test", "encoreTest", new User("toujoursTest"), 0, Category.OTHER, LocalDate.parse("2018-03-09"), Emergency.LOW, "");
-        assertEquals(expected.getTitle(),  this.mb.readIncidents(this.filePath).get(0).getTitle());
+        assertEquals(expected.getTitle().getValue(),  this.mb.readIncidents(this.filePath).get(0).getTitle().getValue());
         assertEquals(expected.getDeclarer(),  this.mb.readIncidents(this.filePath).get(0).getDeclarer());
-        assertEquals(expected.getDescription(),  this.mb.readIncidents(this.filePath).get(0).getDescription());
+        assertEquals(expected.getDescription().getValue(),  this.mb.readIncidents(this.filePath).get(0).getDescription().getValue());
 
     }
 }

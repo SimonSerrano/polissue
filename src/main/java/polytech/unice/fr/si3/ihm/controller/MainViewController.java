@@ -23,8 +23,6 @@ import polytech.unice.fr.si3.ihm.view.IncidentCell;
 
 import java.io.IOException;
 
-import static javafx.application.Application.STYLESHEET_MODENA;
-import static javafx.application.Application.setUserAgentStylesheet;
 
 public class MainViewController {
 
@@ -88,7 +86,6 @@ public class MainViewController {
             scene.getStylesheets().add("/styles/button.css");
             stage.setTitle("Polissue - Ajouter un incident");
             stage.setScene(scene);
-            setUserAgentStylesheet(STYLESHEET_MODENA);
 
             AddIncidentController controller = loader.getController();
             controller.setStage(stage);
@@ -290,7 +287,7 @@ public class MainViewController {
         Filters.EMERGENCY.setClicked(false);
         dateButton.getStyleClass().removeAll(FILTER_SELECTED_STYLE_CLASS);
         Filters.DATE.setClicked(false);
-        categoryButton.setValue(Category.CATEGORY.getFrenchString());
+        categoryButton.setValue(Category.CATEGORY.getFrenchString().getValue());
     }
 
     private void resetTypeOfSort(){
@@ -309,7 +306,7 @@ public class MainViewController {
         incidentsView.itemsProperty().bind(new SimpleListProperty<>(Main.INCIDENTS));
         for (Category cat : Category.values()){
             if(!cat.equals(Category.CATEGORY)){
-                categoryButton.getItems().add(cat.getFrenchString());
+                categoryButton.getItems().add(cat.getFrenchString().getValue());
             }
         }
         categoryButton.getSelectionModel().selectedItemProperty().addListener(observable -> sortCategories(categoryButton.getSelectionModel().getSelectedItem()));

@@ -1,5 +1,7 @@
 package polytech.unice.fr.si3.ihm.model;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import polytech.unice.fr.si3.ihm.util.Constant;
 
 public enum Category {
@@ -13,18 +15,18 @@ public enum Category {
     OTHER(Constant.OTHER_CATEGORY, "AUTRE");
 
     private String categoryFilePath;
-    private String frenchString;
+    private StringProperty frenchString;
 
     Category(String categoryFilePath, String frenchString) {
         this.categoryFilePath = categoryFilePath;
-        this.frenchString = frenchString;
+        this.frenchString = new SimpleStringProperty(frenchString);
     }
 
     public String getCategoryFilePath() {
         return categoryFilePath;
     }
 
-    public String getFrenchString() {
+    public StringProperty getFrenchString() {
         return frenchString;
     }
 }

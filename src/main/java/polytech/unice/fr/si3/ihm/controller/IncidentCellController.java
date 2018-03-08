@@ -186,14 +186,14 @@ public class IncidentCellController {
     public void setItem(Incident item) {
         cell.getChildren().remove(bottomCell);
         incident = item;
-        title.textProperty().bind(new SimpleStringProperty(item.getTitle()));
-        category.textProperty().bind(new SimpleStringProperty(item.getCategory().getFrenchString()));
+        title.textProperty().bind(item.getTitle());
+        category.textProperty().bind(item.getCategory().getFrenchString());
         date.textProperty().bind(new SimpleStringProperty("déclaré le " + item.getDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))));
         likes.textProperty().bind(new SimpleStringProperty(String.valueOf(item.getLikes())));
-        incidentLocation.textProperty().bind(new SimpleStringProperty(item.getLocation()));
+        incidentLocation.textProperty().bind(item.getLocation());
         emergency.setFill(getColorFromEmergency(item.getEmergency()));
-        description.textProperty().bind(new SimpleStringProperty(item.getDescription()));
-        declarer.textProperty().bind(new SimpleStringProperty(item.getDeclarer().getName()));
+        description.textProperty().bind(item.getDescription());
+        declarer.textProperty().bind(item.getDeclarer().getName());
     }
 
     public Node getView() {
