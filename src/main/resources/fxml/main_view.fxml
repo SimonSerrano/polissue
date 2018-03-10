@@ -28,7 +28,7 @@
                                     <Insets right="15.0" />
                                  </HBox.margin>
                               </JFXTextField>
-                              <JFXButton fx:id="searchButton" alignment="CENTER" buttonType="RAISED" onMouseReleased="#searchIncident" prefHeight="33.0" prefWidth="133.0" style="-fx-border-style: solid; -fx-border-color: #2196F3; -fx-border-radius: 50; -fx-background-radius: 50;" stylesheets="@../styles/button.css" text="Rechercher" HBox.hgrow="ALWAYS">
+                              <JFXButton fx:id="searchButton" alignment="CENTER" buttonType="RAISED" onMouseReleased="#searchIncident" prefHeight="33.0" prefWidth="133.0" style="-fx-border-style: solid; -fx-border-color: #2196F3; -fx-border-radius: 50; -fx-background-radius: 50;" text="Rechercher" HBox.hgrow="ALWAYS">
                                  <effect>
                                     <DropShadow />
                                  </effect>
@@ -50,7 +50,7 @@
                         <HBox alignment="CENTER" prefHeight="69.0" prefWidth="450.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Label prefHeight="69.0" prefWidth="88.0" text="Trier :" HBox.hgrow="ALWAYS" />
-                              <JFXButton fx:id="likesButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#likesButtonClicked" prefHeight="35.0" prefWidth="86.0" styleClass="filter-button" stylesheets="@../styles/button.css" text="Likes" HBox.hgrow="ALWAYS">
+                              <JFXButton fx:id="likesButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#likesButtonClicked" prefHeight="35.0" prefWidth="86.0" styleClass="filter-button" text="Likes" HBox.hgrow="ALWAYS">
                                  <effect>
                                     <DropShadow />
                                  </effect>
@@ -58,7 +58,7 @@
                                     <Insets />
                                  </HBox.margin>
                               </JFXButton>
-                              <JFXButton fx:id="emergencyButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#emergencyButtonClicked" prefHeight="35.0" prefWidth="98.0" styleClass="filter-button" stylesheets="@../styles/button.css" text="Urgence" HBox.hgrow="ALWAYS">
+                              <JFXButton fx:id="emergencyButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#emergencyButtonClicked" prefHeight="35.0" prefWidth="98.0" styleClass="filter-button" text="Urgence" HBox.hgrow="ALWAYS">
                                  <effect>
                                     <DropShadow />
                                  </effect>
@@ -66,7 +66,7 @@
                                     <Insets left="25.0" />
                                  </HBox.margin>
                               </JFXButton>
-                              <JFXButton fx:id="dateButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#dateButtonClicked" prefHeight="35.0" prefWidth="86.0" styleClass="filter-button" stylesheets="@../styles/button.css" text="Date" HBox.hgrow="ALWAYS">
+                              <JFXButton fx:id="dateButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#dateButtonClicked" prefHeight="35.0" prefWidth="86.0" styleClass="filter-button" text="Date" HBox.hgrow="ALWAYS">
                                  <effect>
                                     <DropShadow />
                                  </effect>
@@ -74,7 +74,7 @@
                                     <Insets left="25.0" />
                                  </HBox.margin>
                               </JFXButton>
-                              <JFXButton fx:id="plusButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#plusButtonClicked" prefHeight="25.0" prefWidth="40.0" styleClass="filter-button" stylesheets="@../styles/button.css" text="+" HBox.hgrow="ALWAYS">
+                              <JFXButton fx:id="plusButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#plusButtonClicked" prefHeight="25.0" prefWidth="40.0" styleClass="filter-button" text="+" HBox.hgrow="ALWAYS">
                                  <effect>
                                     <DropShadow />
                                  </effect>
@@ -82,7 +82,7 @@
                                     <Insets left="40.0" />
                                  </HBox.margin>
                               </JFXButton>
-                              <JFXButton fx:id="minusButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#minusButtonClicked" prefHeight="25.0" prefWidth="40.0" styleClass="filter-button" stylesheets="@../styles/button.css" text="-" HBox.hgrow="ALWAYS">
+                              <JFXButton fx:id="minusButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#minusButtonClicked" prefHeight="25.0" prefWidth="40.0" styleClass="filter-button" text="-" HBox.hgrow="ALWAYS">
                                  <effect>
                                     <DropShadow />
                                  </effect>
@@ -96,7 +96,7 @@
                   </VBox>
                   <VBox prefHeight="318.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <JFXButton fx:id="addIncidentButton" alignment="CENTER" buttonType="RAISED" onMouseReleased="#addIncident" style="-fx-border-style: solid; -fx-border-color: #2196F3;" stylesheets="@../styles/button.css" text="Ajouter un incident">
+                        <JFXButton fx:id="addIncidentButton" alignment="CENTER" buttonType="RAISED" onMouseReleased="#addIncident" style="-fx-border-style: solid; -fx-border-color: #2196F3;" text="Ajouter un incident">
                            <effect>
                               <DropShadow />
                            </effect>

@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -51,6 +52,8 @@ public class Main extends Application {
         scene.getStylesheets().add("/styles/button.css");
         primaryStage.setTitle("Polissue");
         primaryStage.setScene(scene);
+        Image logo = new Image(Constant.POLISSUE_LOGO);
+        primaryStage.getIcons().add(logo);
 
         MainViewController controller = loader.getController();
         controller.setStage(primaryStage);

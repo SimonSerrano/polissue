@@ -19,7 +19,7 @@
    <children>
       <FlowPane orientation="VERTICAL" prefHeight="576.0" prefWidth="19.0" rowValignment="TOP" HBox.hgrow="ALWAYS">
          <children>
-            <JFXButton alignment="CENTER" buttonType="RAISED" onMouseReleased="#backToIncidentList" prefHeight="33.0" prefWidth="83.0" stylesheets="@../styles/button.css" text="&lt; Retour">
+            <JFXButton alignment="CENTER" buttonType="RAISED" onMouseReleased="#backToIncidentList" prefHeight="33.0" prefWidth="83.0" text="&lt; Retour">
                <styleClass>
                   <String fx:value="button-raised" />
                   <String fx:value="regular-button" />
@@ -147,7 +147,7 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </HBox.margin>
          <children>
-            <JFXButton alignment="CENTER" buttonType="RAISED" onMouseReleased="#validateIncident" prefHeight="45.0" prefWidth="43.0" style="-fx-border-color: #2196F3; -fx-border-radius: 50; -fx-background-radius: 50;" stylesheets="@../styles/button.css" text="✔">
+            <JFXButton alignment="CENTER" buttonType="RAISED" onMouseReleased="#validateIncident" prefHeight="45.0" prefWidth="43.0" style="-fx-border-color: #2196F3; -fx-border-radius: 50; -fx-background-radius: 50;" text="✔">
                <styleClass>
                   <String fx:value="button-raised" />
                   <String fx:value="regular-button" />

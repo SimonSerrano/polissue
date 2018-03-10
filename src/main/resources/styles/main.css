@@ -17,7 +17,7 @@
 
 .cell:hover{
     -fx-effect: dropshadow(gaussian,rgba(170,170,170,0.5),0,0,0,1 );
-    -fx-background-color: #2196F3;
+    -fx-background-color: rgba(33, 150, 243, 0.6);
 }
 
 .cell:empty{
