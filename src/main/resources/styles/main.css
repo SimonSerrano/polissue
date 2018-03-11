@@ -17,15 +17,12 @@
 
 .cell:hover{
     -fx-effect: dropshadow(gaussian,rgba(170,170,170,0.5),0,0,0,1 );
-    -fx-background-color: rgba(33, 150, 243, 0.6);
+    -fx-background-color: rgba(33, 150, 235, 0.9);
 }
 
 .cell:empty{
     -fx-background-color: white;
 }
 
-.cell:filled:focused:selected{
-    -fx-background-color: #2196F3;
-    -fx-text-fill: black;
-}
+
 
